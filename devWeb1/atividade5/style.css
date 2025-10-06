@@ -1,0 +1,74 @@
+h1 {
+    padding: 20px;
+    background-color: black;
+    width: fit-content;
+    color: white;
+    border-radius: 15px;
+}
+
+table {
+    margin: auto;
+}
+
+.table {
+    margin: 15px auto;
+    padding-bottom: 10px;
+    border-bottom: 2px solid green;
+}
+
+.table table td, th {
+    padding: 5px;
+}
+
+.table1 table {
+    border: 1px solid black;
+}
+    .table1 td, .table1 th {
+        padding: 0;
+    }
+
+.table2 th{
+    background-color: gray;
+    color: yellow;
+}
+
+.table2 td, .table2 th {
+    padding: 0;
+}
+
+.table3 table{
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+    .table3 table td, .table3 table th {
+        padding: 5px;
+        border: 1px solid black;
+    }
+
+    .table3 th {
+        background-color: gray;
+        color: white;
+    }
+
+    .table .modelo {
+        background-color: lightblue;
+    }
+
+    .table .consumo {
+        background-color: lightgreen;
+    }
+
+
+.table4 table{
+    border-collapse: collapse;
+}
+
+    .table4 th {
+        background-color: black;
+        color: white;
+    }
+
+    .table4 tr:nth-child(2n){
+        background-color: beige;
+    }

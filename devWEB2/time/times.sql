@@ -1,0 +1,8 @@
+-- Active: 1755817562131@@127.0.0.1@3307@dbtimes
+/* Tabela times */
+CREATE TABLE times (
+	id INTEGER NOT NULL AUTO_INCREMENT,
+	nome VARCHAR(50) NOT NULL,
+	cidade VARCHAR(50) NOT NULL,
+	CONSTRAINT pk_times PRIMARY KEY (id)
+);

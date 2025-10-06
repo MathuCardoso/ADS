@@ -1,0 +1,353 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  background-color: white;
+  color: black;
+}
+
+.container {
+  width: 100%;
+  display: grid;
+  place-items: center;
+  gap: 25px;
+  padding: 20px 0;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.section1 .container-grid {
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, max-content);
+  /* display: flex;
+    justify-content: center;
+    align-items: center; */
+  font-size: 30px;
+}
+
+.modelo span,
+.consumo span {
+  display: block;
+  border: 1px solid black;
+  padding: 5px;
+}
+
+.modelo h4,
+.consumo h4 {
+  background-color: #6e6e6e;
+  border: 1px solid black;
+  color: white;
+  padding: 5px;
+  text-align: center;
+}
+
+.modelo span {
+  background-color: #ccffff;
+}
+
+.consumo span {
+  background-color: #98ff98;
+}
+
+/* //////////////// SEÇÃO 2 //////////////// */
+
+.section2 .container-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  font-size: 30px;
+}
+
+.vendas {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.vendas span {
+  border: 1px solid black;
+  padding: 5px;
+}
+
+.section2 .header {
+  background-color: rgb(243, 213, 124);
+  border: 1px solid black;
+  padding: 5px;
+  font-weight: bold;
+}
+
+.section2 .footer {
+    text-align: center;
+    background-color: #E6e6e6;
+    font-size: 15px;
+    border: 1px solid black;
+    padding: 10px 0;
+}
+
+.modeloCarro h4,
+.unidades h4 {
+  background-color: #97cbfa;
+  border: 1px solid black;
+  text-align: center;
+  padding: 5px;
+}
+
+.modeloCarro,
+.unidades {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+/* //////////////// SEÇÃO 3 //////////////// */
+
+
+.section3 .container-grid {
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, max-content);
+    /* display: flex;
+      justify-content: center;
+      align-items: center; */
+  }
+  
+  .modelo span,
+  .consumo span {
+    display: block;
+    border: 1px solid black;
+    padding: 5px;
+  }
+  
+  .modelo h4,
+  .consumo h4 {
+    background-color: #6e6e6e;
+    border: 1px solid black;
+    color: white;
+    padding: 5px;
+    text-align: center;
+  }
+  
+  .modelo span {
+    background-color: #ccffff;
+  }
+  
+  .consumo span {
+    background-color: #98ff98;
+  }
+
+  /* Section 3 */
+
+
+.section3 table {
+  border-collapse: collapse;
+  border: 1px solid black;
+}
+
+.section3 table tr{
+  border: 1px solid black;
+}
+
+.section3 table td {
+  padding: 15px;
+  font-size: 25px;
+}
+
+.section3 table th {
+  background-color: #6e6e6e;
+  color: white;
+  padding: 7px;
+  font-weight: bold;
+  font-size: 25px;
+  text-align: center;
+}
+
+.section3 table img {
+  width: 200px;
+}
+
+.section3 table td {
+  width: fit-content;
+}
+
+#tag-table::after {
+  content: ">";
+}
+
+#tag-table::before {
+  content: "<";
+}
+
+/* SECTION 4 */
+
+.section4 .grid-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  border: 1px solid black;
+  max-width: 500px;
+  font-size: 30px;
+  font-family: "Fira Code";
+}
+
+.section4 .header {
+  background-color: lightgreen;
+  border: none;
+  font-weight: bold;
+}
+
+.section4 .placares {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}
+
+.section4 .resultados .res {
+  padding: 10px 0;
+}
+
+.section4 .vs .x {
+  padding: 10px 0;
+}
+
+.section4 .clubes .clube {
+  padding: 10px 0;
+}
+
+.section4 .x {
+  color: lightgrey;
+}
+
+.section4 .grid-container * {
+  padding: 3px;
+}
+
+.section4 .divisao, .section4 .ano {
+  padding: 0;
+}
+
+.section4 .footer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background-color: darkblue;
+  color: white;
+  font-size: 20px;
+  padding: 0;
+}
+
+
+/* SECTION 5 */
+
+.section5 .grid-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+
+.section5 .header {
+  background-color: #5EFB6E;
+  font-size: 25px;
+  margin: 5px 0;
+}
+
+.section5 .casas {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+
+.casas .casa img{
+  width: 100%;
+  max-height: 100px;
+}
+
+/* SECTION 6 */
+
+.section6 .grid-container {
+  width: 1000px;
+  display: grid;
+  grid-template-areas:"header header"
+                      "menu conteudo"
+                      "rodape rodape";
+  grid-template-columns: 1fr 5fr;
+}
+
+.section6 h1, .section6 .conteudo h2 {
+  color: darkblue;
+}
+
+.section6 .conteudo h2{
+  border-bottom: 1px solid black;
+  margin-bottom: 10px;
+}
+
+.section6 .conteudo p:last-of-type {
+  margin-bottom: 40px;
+}
+
+.section6 .conteudo {
+  display: grid;
+  gap: 10px;
+  max-width: 95%;
+}
+
+.section6 ul li {
+  list-style: none;
+  color: yellow;
+}
+
+.section6 .header ul li:first-of-type::after, 
+.section6 .header ul li:nth-of-type(2)::after {
+  content: " | ";
+  color: darkblue;
+}
+
+.section6 .header {
+  grid-area: header;
+  text-align: center;
+  background-color: burlywood;
+  padding: 15px;
+}
+
+.section6 .header ul li{
+  display: inline;
+}
+
+.section6 .menu {
+  grid-area: menu;
+  background-color: burlywood;
+  padding: 5px;
+  height: fit-content;
+}
+
+.section6 .menu ul li {
+  color: darkblue;
+  background-color: white;
+  border-radius: 5px;
+  padding: 5px;
+  width: 100%;
+  margin: 10px 0;
+}
+
+.section6 .menu #produtos {
+  background-color: lightgreen;
+}
+
+.section6 .conteudo {
+  grid-area: conteudo;
+  padding: 15px;
+}
+
+.section6 .footer {
+  grid-area: rodape;
+  height: 50px;
+  background-color: lightgray;
+  text-align: center;
+}
+
+.section6 .footer p {
+  line-height: 50px;
+}

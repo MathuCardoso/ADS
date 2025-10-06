@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Atividade Formulário</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <section class="ex1">
+      <h2 class="text-center">Exercício 1</h2>
+      <div class="atv">
+        <form>
+          <label for="">Data de nascimento</label>
+          <input type="date" />
+
+          <label for="">Escolaridade</label>
+          <select name="" id="escolaridade">
+            <option value="ensinoFundamental">Ensino Fundamental</option>
+          </select>
+
+          <label for="">Situação da Escolaridade</label>
+          <div class="situacaoEscol">
+            <input type="radio" name="sit" id="sitComp" />
+            <label for="sitComp">Completo</label>
+            <input type="radio" name="sit" id="sitIncomp" />
+            <label for="sitIncomp">Incompleto</label>
+          </div>
+
+          <label for="">Nacionalidade</label>
+          <select name="" id="selNac">
+            <option value="BR">Brasil</option>
+          </select>
+
+          <label for="">UF onde nasceu</label>
+          <select name="" id="selUf">
+            <option value="PR">Paraná</option>
+          </select>
+          <button>enviar</button>
+        </form>
+      </div>
+    </section>
+
+    <section class="ex2">
+      <h2 class="text-center">Exercício 2</h2>
+      <div class="atv">
+        <form>
+          <label for="name">Nome</label>
+          <input type="text" id="name" placeholder="Nome" />
+
+          <label for="email">Email</label>
+          <input type="email" id="email" placeholder="user@email.org" />
+
+          <label for="pass">Password</label>
+          <input type="password" id="pass" placeholder="6 caracteres" />
+
+          <label>Possui conhecimento?</label>
+
+          <div class="conhecimento">
+            <div class="check">
+              <input type="checkbox" id="js" />
+              <label for="js">JavaScript</label>
+            </div>
+
+            <div class="check">
+              <input type="checkbox" id="html" />
+              <label for="html">HTML</label>
+            </div>
+
+            <div class="check">
+              <input type="checkbox" id="css" />
+              <label for="css">CSS</label>
+            </div>
+          </div>
+
+          <label for="course">Curso</label>
+          <select name="" id="">
+            <option value="">--Selecione--</option>
+            <option value="">Análise e Desenvolvimento</option>
+            <option value="">Física</option>
+            <option value="">Matemática</option>
+          </select>
+
+          <label>Turno</label>
+
+          <div class="turnos">
+            <div class="turno">
+              <input type="radio" id="tarde" />
+              <label for="tarde">Tarde</label>
+            </div>
+
+            <div class="turno">
+              <input type="radio" id="noite" />
+              <label for="noite">Noite</label>
+            </div>
+          </div>
+
+          <label for="matr">Motivo Matrícula</label>
+          <textarea id="matr" rows="7"></textarea>
+
+          <div></div>
+
+          <button>enviar</button>
+        </form>
+      </div>
+    </section>
+
+    <section class="ex3">
+      <h2 class="text-center">Exercício 3</h2>
+
+      <div class="atv">
+        <form>
+          <label for="nome">Nome</label>
+          <input
+            minlength="3"
+            type="text"
+            id="nome"
+            placeholder="Nome"
+            required
+          />
+
+          <label for="e-mail">Email</label>
+          <input
+            type="email"
+            id="e-mail"
+            placeholder="user@email.org"
+            required
+          />
+
+          <label for="senha">Password</label>
+          <input
+            minlength="6"
+            maxlength="10"
+            type="password"
+            id="senha"
+            placeholder="6 caracteres"
+            required
+          />
+
+          <label>Possui conhecimento?</label>
+
+          <div class="conhecimento">
+            <div class="check">
+              <input type="checkbox" id="js2" />
+              <label for="js2">JavaScript</label>
+            </div>
+
+            <div class="check">
+              <input type="checkbox" id="html2" />
+              <label for="html2">HTML</label>
+            </div>
+
+            <div class="check">
+              <input type="checkbox" id="css2" />
+              <label for="css2">CSS</label>
+            </div>
+          </div>
+
+          <label for="course">Curso</label>
+          <select name="" id="">
+            <option value="">--Selecione--</option>
+            <option value="">Análise e Desenvolvimento</option>
+            <option value="">Física</option>
+            <option value="">Matemática</option>
+          </select>
+
+          <label>Turno</label>
+
+          <div class="turnos">
+            <div class="turno">
+              <input type="radio" id="tarde2" />
+              <label for="tarde2">Tarde</label>
+            </div>
+
+            <div class="turno">
+              <input type="radio" id="noite2" />
+              <label for="noite2">Noite</label>
+            </div>
+          </div>
+
+          <label for="matr2">Motivo Matrícula</label>
+          <textarea id="matr2" rows="7"></textarea>
+
+          <div></div>
+
+          <button>enviar</button>
+        </form>
+      </div>
+    </section>
+
+    <section class="ex4">
+      <h2 class="text-center">Exercício 4</h2>
+
+      <div class="atv">
+        <form>
+          <h2>Cadastro de Usuário</h2>
+
+          <div class="formulario">
+            <label for="nome2">Nome</label>
+            <input type="text" id="nome2" placeholder="Nome" />
+
+            <label for="e-mail">Email</label>
+            <input type="email" id="email2" placeholder="user@email.org" />
+
+            <label for="nasc">Nascimento</label>
+            <input type="date" id="nasc" placeholder="user@email.org" />
+
+            <label for="pais">Pais</label>
+            <select id="pais">
+              <option value="">Selecione</option>
+            </select>
+
+            <label for="idade">Idade</label>
+            <div class="tel">
+              <input type="number" id="idade" />
+
+              <label for="ddd">DDD</label>
+              <input type="text" id="ddd" value="22" />
+
+              <label for="tel">Telefone</label>
+              <input type="tel" id="tel" />
+            </div>
+
+            <div class=""></div>
+
+            <button>Adicionar</button>
+          </div>
+        </form>
+      </div>
+    </section>
+  </body>
+</html>

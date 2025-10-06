@@ -1,0 +1,436 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    width: 100%;
+}
+
+.text-center {
+    text-align: center;
+}
+
+section {
+    width: 100%;
+}
+
+.ex1, .ex2, .ex3, .ex4 {
+    width: 100%;
+    display: grid;
+    justify-content: center;
+}
+
+.ex1 .atv {
+    display: grid;
+    justify-content: left;
+    background-color: #c4fdb8;
+    padding: 20px;
+    margin: 20px;
+    border: 1px solid green;
+    width: 50vw;
+}
+
+.ex1 .atv form {
+    display: grid;
+    grid-template-columns: max-content max-content;
+    justify-content: center;
+    gap: 10px;
+    font-size: 23px;
+}
+
+.ex1 .atv form label {
+    text-align: right;
+    margin: 10px 0;
+    color: darkblue;
+}
+
+.ex1 .atv form input, .ex1 .atv form select{
+    height: 25px;
+    margin: 10px 0;
+    font-size: 16px;
+}
+
+.ex1 .atv form select{
+    font-weight: bold;
+    padding-left: 3px;
+}
+
+.ex1 .atv .situacaoEscol label {
+    color: darkgreen;
+}
+
+.ex1 .atv .situacaoEscol input[type=radio] {
+    height: fit-content;
+    margin: 0;
+}
+
+.ex1 .atv input[type=date] {
+    height: 35px;
+    width: 80%;
+}
+
+.ex1 .atv .situacaoEscol {
+    margin: 10px 0;
+}
+
+.ex1 .atv form button {
+    width: fit-content;
+    padding: 3px 7px;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+#selNac {
+    width: 40%;
+}
+
+#selUf {
+    width: 65%;
+}
+
+#escolaridade {
+    width: 80%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.ex2 .atv {
+    display: grid;
+    justify-content: left;
+    background-color: white;
+    padding: 20px;
+    margin: 20px;
+    border: 1px solid black;
+    width: 60vw;
+}
+
+.ex2 .atv form {
+    display: grid;
+    grid-template-columns: max-content max-content;
+    justify-content: center;
+    gap: 10px;
+    font-size: 23px;
+}
+
+.ex2 .atv form label {
+    text-align: right;
+    margin: 5px 0;
+    color: black;
+    align-content: center;
+}
+
+.ex2 .atv form input{
+    height: 40px;
+    margin: 5px 0;
+    font-size: 16px;
+    padding-left: 5px;
+}
+
+.ex2 .atv form select{
+    padding-left: 3px;
+    font-size: 16px;
+}
+
+
+
+.ex2 .atv input[type=date] {
+    height: 35px;
+    width: 80%;
+}
+
+.ex2 .atv form button {
+    width: fit-content;
+    padding: 3px 7px;
+    font-size: 16px;
+}
+
+.conhecimento {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    align-content: center;
+    gap: 25px;
+}
+
+.ex2 .atv .conhecimento .check input {
+    height: 20px;
+    width: 20px;
+    border-radius: 20px;
+}
+
+.ex2 .atv .conhecimento .check label {
+    margin-bottom: 0;
+}
+
+.check {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    align-items: end;
+    gap: 10px;
+}
+
+.turnos {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    align-content: end;
+    justify-content: left;
+    gap: 25px;
+}
+
+.turnos .turno {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    justify-content: left;
+    align-items: center;
+    gap: 5px;
+}
+
+.ex2 .atv .turnos .turno label {
+    text-align: left;
+}
+
+.ex2 .atv .turnos .turno input{
+    height: 20px;
+    width: 20px;
+}
+
+
+#matr {
+    resize: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.ex3 .atv {
+    display: grid;
+    justify-content: left;
+    background-color: white;
+    padding: 20px;
+    margin: 20px;
+    border: 1px solid black;
+    width: 60vw;
+}
+
+.ex3 .atv form {
+    display: grid;
+    grid-template-columns: max-content max-content;
+    justify-content: center;
+    gap: 10px;
+    font-size: 23px;
+}
+
+.ex3 .atv form label {
+    text-align: right;
+    margin: 5px 0;
+    color: black;
+    align-content: center;
+}
+
+.ex3 .atv form input{
+    height: 40px;
+    margin: 5px 0;
+    font-size: 16px;
+    padding-left: 5px;
+}
+
+.ex3 .atv form select{
+    padding-left: 3px;
+    font-size: 16px;
+}
+
+
+
+.ex3 .atv input[type=date] {
+    height: 35px;
+    width: 80%;
+}
+
+.ex3 .atv form button {
+    width: fit-content;
+    padding: 3px 7px;
+    font-size: 16px;
+}
+
+.conhecimento {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    align-content: center;
+    gap: 25px;
+}
+
+.ex3 .atv .conhecimento .check input {
+    height: 20px;
+    width: 20px;
+    border-radius: 20px;
+}
+
+.ex3 .atv .conhecimento .check label {
+    margin-bottom: 0;
+}
+
+.check {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    align-items: end;
+    gap: 10px;
+}
+
+.turnos {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    align-content: end;
+    justify-content: left;
+    gap: 25px;
+}
+
+.turnos .turno {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    justify-content: left;
+    align-items: center;
+    gap: 5px;
+}
+
+.ex3 .atv .turnos .turno label {
+    text-align: left;
+}
+
+.ex3 .atv .turnos .turno input{
+    height: 20px;
+    width: 20px;
+}
+
+
+#matr {
+    resize: none;
+}
+
+.ex3 .atv #nome:invalid {
+    color: red;
+}
+
+.ex3 .atv #e-mail:invalid {
+    color: red;
+}
+
+.ex3 .atv #senha:invalid {
+    color: red;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.ex4 .atv {
+    padding: 5px 10px 25px 15px;
+    margin: 20px;
+    border: 1px solid black;
+    width: 60vw;
+    background-image: url("https://cdn.pixabay.com/photo/2016/10/20/18/35/earth-1756274_1280.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.ex4 .atv form {
+    width: 100%;
+    display: grid;
+    font-size: 23px;
+    background-color: rgba(0, 255, 255, 0.178);
+    border: 1px solid cyan;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.ex4 .atv .formulario {
+    width: 100%;
+    display: grid;
+    justify-content: center;
+    grid-template-columns: 1fr 5fr;
+    gap: 10px;
+    font-size: 23px;
+}
+
+.ex4 .atv h2 {
+    color: white;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 25px;
+    font-weight: lighter;
+}
+
+.ex4 .atv form label {
+    text-align: right;
+    margin: 5px 0;
+    color: cyan;
+    align-content: center;
+}
+
+.ex4 .atv form input{
+    height: 40px;
+    margin: 5px 0;
+    font-size: 16px;
+    padding-left: 5px;
+    width: 100%;
+    border: 2px solid blue;
+    box-shadow: 4px 3px 15px rgba(128, 0, 128, 0.5);
+    border-radius: 3px;
+}
+
+.ex4 .atv form select{
+    padding-left: 5px;
+    font-size: 16px;
+    border: 2px solid blue;
+    box-shadow: 4px 3px 15px rgba(128, 0, 128, 0.5);
+    border-radius: 3px;
+}
+
+.ex4 .atv form button {
+    width: fit-content;
+    padding: 5px 7px;
+    font-size: 16px;
+}
+
+
+.tel {
+    display: grid;
+    grid-template-columns: repeat(5, auto);
+    gap: 15px;
+}

@@ -1,0 +1,36 @@
+/* EXERCÍCIO 1 */
+.ex1 a:active {
+    color: darkgreen;
+}
+
+.ex1 a:visited {
+    color: maroon;
+}
+
+.ex1 a:hover {
+    color: yellow;
+}
+
+.ex1 a:focus {
+    color: red;
+}
+
+/* EXERCÍCIO 2 */
+
+table {
+    border: 1px solid lightgray;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+table td {
+    width: 100px;
+}
+
+table th {
+    color: darkblue;
+}
+
+table tr:nth-child(2n) {
+    background-color: lightgray;
+}

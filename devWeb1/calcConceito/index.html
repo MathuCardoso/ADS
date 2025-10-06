@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculadora de conceitos</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <span id="ttl">Intervalo de valores e conceito</span>
+      <div class="valores">
+        <ol>
+          <div id="notaA">
+            <span>A</span>
+            <li>9.0 - 10</li>
+          </div>
+          <div id="notaB">
+            <span>B</span>
+            <li>7.5 - 8.9</li>
+          </div>
+          <div id="notaC">
+            <span>C</span>
+            <li>6.0 - 7.4</li>
+          </div>
+          <div id="notaD">
+            <span>D</span>
+            <li>0.0 - 5.9</li>
+          </div>
+        </ol>
+      </div>
+
+      <div class="calculadora">
+        <h1>Calculadora de Conceitos</h1>
+
+        <div class="inputs">
+          <div class="inp">
+            <label for="inp1">Nota 1</label>
+            <input min="0" max="10" class="inpNota" id="inp1" type="number" value="0" />
+          </div>
+
+          <div class="inp">
+            <label for="inp2">Nota 2</label>
+            <input min="0" max="10" class="inpNota" id="inp2" type="number" value="0" />
+          </div>
+
+          <div class="inp">
+            <label for="inp3">Nota 3</label>
+            <input min="0" max="10" class="inpNota" id="inp3" type="number" value="0" />
+          </div>
+        </div>
+
+        <div class="result">
+          <span>Conceito: <span id="conceito"></span></span>
+          <span>Média: <span id="media"></span></span>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

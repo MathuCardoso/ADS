@@ -1,0 +1,61 @@
+:root {
+  --cor-fundo: rgb(41, 41, 41);
+}
+
+header {
+  height: 10vh;
+  box-shadow: 0 4px 10px red;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px;
+  width: 100%;
+  background-color: var(--cor-fundo);
+  overflow: hidden;
+}
+
+.nav-container {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  overflow: hidden;
+}
+.ano {
+  font-style: italic;
+  font-size: 35px;
+  color: red;
+  font-weight: bold;
+}
+.menu {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  font-size: 1.2rem;
+}
+.menu li {
+  color: white;
+}
+li a {
+  text-decoration: none;
+  color: white;
+}
+li a:hover {
+  border-bottom: 1px solid red;
+}
+
+.logo{
+  height: 100%;
+  width: auto;
+  display: flex;
+  align-items: center;
+}
+#f1Logo {
+    width: auto;
+    height: 100%;
+    max-height: 35px;
+    object-fit: contain;
+}

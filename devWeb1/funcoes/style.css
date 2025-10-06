@@ -1,0 +1,367 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Helvetica;
+}
+
+html {
+  scroll-behavior: smooth !important;
+}
+
+body {
+  height: 100%;
+  width: 100%;
+}
+
+.nxtEx {
+  position: absolute;
+  bottom: 5%;
+  right: 5%;
+}
+
+.nxtEx svg {
+  width: 75px;
+  height: 75px;
+  cursor: pointer;
+}
+
+.nxtEx svg:active {
+  color: blue;
+}
+
+.nxtEx a {
+  color: black;
+}
+
+h2 {
+  text-align: center;
+  font-size: 35px;
+}
+
+.ex1,
+.ex2,
+.ex3,
+.ex4,
+.ex5 {
+  position: relative;
+  height: 100vh;
+}
+
+/* ---------- EXERCÍCIO 1 ---------- */
+
+.ex1 {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  border-bottom: 2px dashed black;
+}
+
+.ex1 .header {
+  position: absolute;
+  top: 5%;
+  left: 50%;
+  transform: translate(-50%, -0%);
+}
+
+.ex1 .atividade {
+  display: grid;
+  align-content: center;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+}
+
+.ex1 button {
+  font-size: 2rem;
+  padding: 5px 7px;
+}
+
+.ex1 button {
+  background-color: black;
+  color: white;
+  border-radius: 7px;
+  cursor: pointer;
+}
+
+.ex1 button:active {
+  background-color: rgb(51, 51, 51);
+}
+
+.ex1 button:first-of-type {
+  border: 2px solid blue;
+  box-shadow: 0 0 20px blue;
+}
+
+.ex1 button:nth-child(2n) {
+  border: 2px solid green;
+  box-shadow: 0 0 20px green;
+}
+
+.ex1 button:last-of-type {
+  border: 2px solid yellow;
+  box-shadow: 0 0 20px yellow;
+}
+
+#reset {
+  position: absolute;
+  top: 2%;
+  right: 5%;
+  font-size: 16px;
+  box-shadow: none;
+  border: 1px solid black;
+  border-radius: 7px;
+  padding: 7px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* ---------- EXERCÍCIO 2 ---------- */
+
+.ex2 {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  border-bottom: 2px dashed black;
+  background-color: white;
+}
+
+.ex2 .header {
+  position: absolute;
+  top: 5%;
+  left: 50%;
+  transform: translate(-50%, -0%);
+}
+
+.ex2 .atividade {
+  display: grid;
+  align-content: center;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+.ex2 input {
+  font-size: 30px;
+  padding: 5px 7px;
+  border-radius: 8px;
+}
+
+#upper {
+  text-transform: uppercase;
+}
+
+/* ---------- EXERCÍCIO 3 ---------- */
+
+.ex3 .header {
+  position: absolute;
+  top: 5%;
+  left: 50%;
+  transform: translate(-50%, -0%);
+}
+
+.ex3 {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  border-bottom: 2px dashed black;
+  padding: 0 50px;
+}
+
+.ex3 .atividade {
+  height: 100%;
+  display: grid;
+  align-content: center;
+  justify-content: center;
+  grid-template-columns: 30% 30%;
+  border-collapse: collapse;
+}
+
+.ex3 .cores {
+  display: grid;
+  justify-content: start;
+  grid-template-columns: repeat(5, auto);
+  gap: 25px;
+}
+
+.ex3 .colorOpt {
+  display: grid;
+  grid-template-columns: 1fr;
+  padding-left: 10px;
+}
+
+.ex3 .colorOpt h2 {
+  font-size: 25px;
+  text-align: start;
+}
+
+.ex3 .red {
+  background-color: red;
+  width: 45px;
+  height: 45px;
+}
+
+.ex3 .cores {
+  display: grid;
+  grid-template-columns: repeat(5, auto);
+}
+
+.ex3 .blue {
+  background-color: blue;
+  width: 45px;
+  height: 45px;
+}
+
+.ex3 .yellow {
+  background-color: yellow;
+  width: 45px;
+  height: 45px;
+}
+
+.ex3 .green {
+  background-color: green;
+  width: 45px;
+  height: 45px;
+}
+
+.ex3 #reset2 {
+  border: 1px solid black;
+  width: 45px;
+  height: 45px;
+}
+
+.ex3 .colorOpt,
+.ex3 .paragrafo {
+  border: 1px solid gray;
+}
+
+.ex3 .paragrafo {
+  padding: 5px;
+  display: grid;
+  font-size: 18px;
+}
+
+.ex3 .paragrafo #pEx {
+  color: gray;
+}
+
+/* ---------- EXERCÍCIO 4 ---------- */
+
+.ex4 .header {
+  position: absolute;
+  top: 5%;
+  left: 50%;
+  transform: translate(-50%, -0%);
+}
+
+.ex4 {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  border-bottom: 2px dashed black;
+  padding: 0 50px;
+}
+
+.ex4 .atividade {
+  height: 100%;
+  display: grid;
+  align-content: center;
+}
+
+.ex4 .calc {
+  display: grid;
+  grid-template-columns: repeat(5, max-content);
+  justify-content: center;
+  align-items: end;
+  gap: 20px;
+}
+
+.ex4 .calc input,
+.ex4 .calc label,
+.ex4 .calc button,
+.ex4 .calc span {
+  font-size: 20px;
+}
+
+.ex4 .calc button {
+  padding: 0 10px;
+  height: fit-content;
+}
+
+.ex4 .calc span {
+  background-color: lightgreen;
+  width: 150px;
+  text-align: center;
+  padding: 5px 0;
+}
+
+/* ---------- EXERCÍCIO 5 ---------- */
+
+.ex5 .header {
+  position: absolute;
+  top: 5%;
+  left: 50%;
+  transform: translate(-50%, -0%);
+}
+
+.ex5 {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  border-bottom: 2px dashed black;
+  padding: 0 50px;
+}
+
+.ex5 .atividade {
+  height: 100%;
+  display: grid;
+  align-content: center;
+  gap: 20px;
+}
+
+.ex5 .calc {
+  display: grid;
+  grid-template-columns: repeat(5, max-content);
+  justify-content: center;
+  align-items: end;
+  gap: 20px;
+}
+
+.ex5 .calc input,
+.ex5 .calc label,
+.ex5 .calc button,
+.ex5 .calc span {
+  font-size: 20px;
+}
+
+.ex5 .calc button {
+  padding: 0 10px;
+  height: fit-content;
+}
+
+.ex5 .calc span {
+  background-color: lightgreen;
+  width: 150px;
+  text-align: center;
+  padding: 5px 0;
+}
+
+.ex5 .atividade #btnCalcular {
+  width: fit-content;
+  background-color: gray;
+  color: white;
+  border: 1px solid black;
+  padding: 7px;
+  border-radius: 5px;
+}
+
+.ex5 .atividade .valorTotal {
+  background-color: lightblue;
+  width: 400px;
+  padding: 20px;
+  font-size: 25px;
+  font-weight: bold;
+}

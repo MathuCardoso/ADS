@@ -1,0 +1,85 @@
+body {
+    margin-bottom: 20px;
+    min-height: 100vh;
+}
+
+h1 {
+    font-family: Fira code;
+    font-weight: lighter;
+    font-size: 30px;
+    background-color: rgb(223, 223, 223);
+    width: fit-content;
+    padding: 10px;
+    width: 95%;
+    box-shadow: 2px 2px 5px rgb(146, 146, 146);
+}
+
+h2 {
+    font-size: 35px;
+}
+
+h3 {
+    font-size: 25px;
+    margin-top: 10px;
+    margin-bottom: 0;
+}
+
+hr {
+    color: rgb(223, 223, 223);
+    width: 23%;
+    text-align: left;
+    margin: 0;
+    padding: 0;
+}
+
+ol {
+    font-size: 25px;
+}
+
+#atv1 ol {
+    color: purple;
+}
+
+#atv2 ol {
+    margin-top: 7px;
+    margin-bottom: 10px;
+    margin-left: 23px;
+}
+
+#atv2 li {
+    margin-bottom: 10px;
+}
+
+#atv3 h2:first-of-type {
+    width: 34%;
+    padding: 5px;
+    background-color: #f0f8ff;
+}
+
+#atv3 ol {
+    margin: 5px 0;
+}
+#atv4 h3 {
+    background-color: #fbfb2c78;
+    width: fit-content;
+}
+
+#atv4 h2:first-of-type {
+    width: 40%;
+    padding: 5px;
+    background-color: #f0f8ff;
+}
+
+#atv4 ol {
+    margin: 5px 0;
+}
+
+#atv4 .list {
+    border: 1px solid rgb(194, 194, 194);
+    width: fit-content;
+    padding: 25px;
+}
+
+.list {
+    margin-left: 50px;
+}

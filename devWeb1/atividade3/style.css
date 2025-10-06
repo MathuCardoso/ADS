@@ -1,0 +1,96 @@
+body,html { 
+    font-family: Arial, Helvetica, sans-serif; 
+    margin: 0;
+    padding: 5px 25px;
+    background-color: #cccccc;
+}
+
+#header {
+    background-color: #9af6b1;
+    text-align: center;
+    padding: 20px 0px;
+}
+
+
+h1 {
+    margin: 0;
+}
+
+h2, h3{
+    color: #59504d;
+}
+
+h2 {
+    margin: 30px 0;
+}
+
+.menu {
+    padding: 0;
+}
+
+.menu li{
+    display: inline;
+    background-color: #85e69a;
+    padding: 3px;
+    font-size: 20px;
+}
+
+.menu a {
+    text-decoration: none;
+}
+
+img.mapa { 
+    width: 50%; 
+}
+
+#content {
+    background-color: white;
+    padding: 50px 20px 15px 20px;
+}
+
+#content #curso {
+    color: #037253;
+}
+
+p {
+    line-height: 1.5rem;
+    color: #333;
+    margin-top: 35px;
+    font-size: 18px;
+    text-indent: 4ch;
+}
+
+#aptdForm li{
+    color: #333;
+    line-height: 1.5rem;
+    font-size: 18px;
+}
+
+.disciplinasCont {
+    display: flex;
+    gap: 20px;
+}
+
+.disc {
+    display: flex;
+    flex-direction: column;
+}
+
+.disc span{
+    border: 1px solid gray;
+    margin: 5px 0;
+    padding: 5px;
+}
+
+.disc h3 {
+    color:  black;
+}
+
+.devWeb {
+    background-color: #85e69a;
+}
+
+#ifpr {
+    color: #037253;
+    margin-top: 50px;
+}

@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Funções</title>
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <section class="ex1" id="ex1">
+      <div class="header">
+        <h2>Exercício 1</h2>
+      </div>
+
+      <div class="atividade">
+        <button onclick="mudarCor('blue')">Azul</button>
+        <button onclick="mudarCor('green')">Verde</button>
+        <button onclick="mudarCor('yellow')">Amarelo</button>
+        <div id="reset" onclick="mudarCor('white')">Reset</div>
+      </div>
+      <div class="nxtEx">
+        <a href="#ex2">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            fill="currentColor"
+            class="bi bi-arrow-down-circle"
+            viewBox="0 0 16 16"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.5 4.5a.5.5 0 0 0-1 0v5.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293z"
+            />
+          </svg>
+        </a>
+      </div>
+    </section>
+
+    <section class="ex2" id="ex2">
+      <div class="header">
+        <h2>Exercício 2</h2>
+      </div>
+
+      <div class="atividade">
+        <input
+          onkeyup="toUpper(this.value)"
+          type="text"
+          placeholder="Digite aqui seu texto"
+          id="lower"
+        />
+
+        <input
+          disabled
+          type="text"
+          placeholder="Letras maiúsculas"
+          id="upper"
+        />
+      </div>
+      <div class="nxtEx">
+        <a href="#ex3">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            fill="currentColor"
+            class="bi bi-arrow-down-circle"
+            viewBox="0 0 16 16"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.5 4.5a.5.5 0 0 0-1 0v5.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293z"
+            />
+          </svg>
+        </a>
+      </div>
+    </section>
+
+    <section class="ex3" id="ex3">
+      <div class="header">
+        <h2>Exercício 3</h2>
+      </div>
+
+      <div class="atividade">
+        <div class="colorOpt">
+          <h2>Opções de cores</h2>
+          <div class="cores">
+            <div class="red" onmouseover="bgP('red')"></div>
+            <div class="blue" onmouseover="bgP('blue')"></div>
+            <div class="yellow" onmouseover="bgP('yellow')"></div>
+            <div class="green" onmouseover="bgP('green')"></div>
+            <div id="reset2" onmouseover="bgP('white')"></div>
+          </div>
+        </div>
+
+        <div class="paragrafo">
+          <p id="pEx">
+            Exercício: Faça o script no JavaScript que associa o evento
+            onmouseover a cada caixa colorida. Quando o onmouseover ocorre, a
+            cor da caixa é usada para definir a cor de fundo do respectivo
+            parágrafo. Ou seja: vermelho para o parágrafo 1 azul para o segundo
+            …
+          </p>
+        </div>
+
+        <div class="paragrafo" id="p1">
+          <p>
+            1 - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Velit
+            euismod in pellentesque massa placerat duis ultricies lacus sed.
+          </p>
+        </div>
+
+        <div class="paragrafo" id="p2">
+          <p>
+            2 - Orci ac auctor augue mauris augue. Habitant morbi tristique
+            senectus et netus. Viverra orci sagittis eu volutpat odio facilisis
+            mauris sit. Lacus luctus accumsan tortor posuere ac. Curabitur vitae
+            nunc sed velit. Amet nisl purus in mollis nunc. Arcu dui vivamus
+            arcu felis bibendum ut.
+          </p>
+        </div>
+
+        <div class="paragrafo" id="p3">
+          <p>
+            3 - Sed felis eget velit aliquet sagittis id consectetur. Venenatis
+            tellus in metus vulputate eu scelerisque felis. Nulla facilisi etiam
+            dignissim diam quis enim lobortis scelerisque. Et ligula ullamcorper
+            malesuada proin libero.
+          </p>
+        </div>
+
+        <div class="paragrafo" id="p4">
+          <p>
+            4 - Nibh venenatis cras sed felis eget. Diam ut venenatis tellus in
+            metus vulputate eu scelerisque felis. Cras ornare arcu dui vivamus
+            arcu. Dignissim diam quis enim lobortis scelerisque fermentum.
+          </p>
+        </div>
+      </div>
+      <div class="nxtEx">
+        <a href="#ex4">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            fill="currentColor"
+            class="bi bi-arrow-down-circle"
+            viewBox="0 0 16 16"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.5 4.5a.5.5 0 0 0-1 0v5.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293z"
+            />
+          </svg>
+        </a>
+      </div>
+    </section>
+
+    <section class="ex4" id="ex4">
+      <div class="header">
+        <h2>Exercício 4</h2>
+      </div>
+
+      <div class="atividade">
+        <div class="calc">
+          <div class="input">
+            <label for="item">Item</label>
+            <input type="text" id="item" />
+          </div>
+
+          <div class="input">
+            <label for="valor">Valor</label>
+            <input type="number" id="valor" />
+          </div>
+
+          <div class="input">
+            <label for="quantidade">Quantidade</label>
+            <input type="number" id="quantidade" />
+          </div>
+
+          <button onclick="calcOrc();">=</button>
+
+          <span id="result">R$ 00.00</span>
+        </div>
+      </div>
+      <div class="nxtEx">
+        <a href="#ex5">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            fill="currentColor"
+            class="bi bi-arrow-down-circle"
+            viewBox="0 0 16 16"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.5 4.5a.5.5 0 0 0-1 0v5.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293z"
+            />
+          </svg>
+        </a>
+      </div>
+    </section>
+
+    <section class="ex5" id="ex5">
+      <div class="header">
+        <h2>Exercício 5</h2>
+      </div>
+
+      <div class="atividade">
+        <div class="calc">
+          <div class="input">
+            <label for="item">Item:</label>
+            <input type="text" id="item2" />
+          </div>
+
+          <div class="input">
+            <label for="valor">Valor:</label>
+            <input type="number" id="valor2" />
+          </div>
+
+          <div class="input">
+            <label for="quantidade">Quantidade:</label>
+            <input type="number" id="quantidade2" />
+          </div>
+
+          <button onclick="calcOrc2(2);">=</button>
+
+          <span id="result2">R$ <span id="resultado2">00.00</span></span>
+        </div>
+
+        <div class="calc">
+          <div class="input">
+            <label for="item">Item:</label>
+            <input type="text" id="item3" />
+          </div>
+
+          <div class="input">
+            <label for="valor">Valor:</label>
+            <input type="number" id="valor3" />
+          </div>
+
+          <div class="input">
+            <label for="quantidade">Quantidade:</label>
+            <input type="number" id="quantidade3" />
+          </div>
+
+          <button onclick="calcOrc2(3);">=</button>
+
+          <span id="result3">R$ <span id="resultado3">00.00</span></span>
+        </div>
+
+        <div class="calc">
+          <div class="input">
+            <label for="item">Item:</label>
+            <input type="text" id="item4" />
+          </div>
+
+          <div class="input">
+            <label for="valor">Valor:</label>
+            <input type="number" id="valor4" />
+          </div>
+
+          <div class="input">
+            <label for="quantidade">Quantidade:</label>
+            <input type="number" id="quantidade4" />
+          </div>
+
+          <button onclick="calcOrc2(4);">=</button>
+
+          <span id="result4">R$ <span id="resultado4">00.00</span></span>
+        </div>
+        <button id="btnCalcular" onclick="calcTotal()">Calcular</button>
+        <span class="valorTotal"
+          >Valor Total: <span id="valorTotal">R$ 00.00</span></span
+        >
+      </div>
+      <div class="nxtEx">
+        <a href="#ex1">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            fill="currentColor"
+            class="bi bi-arrow-up-circle"
+            viewBox="0 0 16 16"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-7.5 3.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707z"
+            />
+          </svg>
+        </a>
+      </div>
+    </section>
+  </body>
+</html>

@@ -1,0 +1,214 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: Helvetica;
+}
+
+body {
+  height: 100%;
+  width: 100%;
+}
+
+.ex1 {
+  height: 100vh;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  border-bottom: 2px solid purple;
+  background-color: black;
+  color: white;
+  position: relative;
+}
+
+.ex1 .header {
+  position: absolute;
+  top: 5%;
+  left: 50%;
+  transform: translate(-50%, -0%);
+}
+
+.ex1 input,
+.ex1 button {
+  font-size: 20px;
+  color: white;
+}
+
+.ex1 .atv button {
+  color: white;
+  background: none;
+  border: 1px solid purple;
+  border-radius: 5px;
+  padding: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+.ex1 .atv button:hover {
+  color: purple;
+  background-color: white;
+}
+
+.ex1 .atv input:disabled {
+  border: none;
+  border-bottom: 1px solid purple;
+  background: none;
+  appearance: textfield;
+}
+
+.ex1 .atv input {
+  border: none;
+  border: 1px solid purple;
+  padding: 5px;
+  background: none;
+  appearance: textfield;
+  border-radius: 7px;
+  outline: none;
+}
+
+#msg {
+  font-size: 20px;
+}
+
+
+
+
+.ex2 {
+  height: 100vh;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  border-bottom: 2px solid purple;
+  position: relative;
+  background-color: black;
+  color: white;
+}
+
+.ex2 .header {
+  position: absolute;
+  top: 5%;
+  left: 50%;
+  transform: translate(-50%, -0%);
+}
+
+.ex2 .atv {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  justify-content: center;
+}
+
+.ex2 input,
+.ex2 button {
+  font-size: 20px;
+}
+
+.ex3 {
+  height: 100vh;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  border-bottom: 2px solid purple;
+  position: relative;
+  background-color: black;
+  color: white;
+}
+
+.ex3 .header {
+  position: absolute;
+  top: 5%;
+  left: 50%;
+  transform: translate(-50%, -0%);
+}
+
+.ex3 .atv {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  justify-content: center;
+}
+
+.ex3 input,
+.ex3 button {
+  font-size: 20px;
+}
+
+.ex3 .atv button {
+  margin-left: 10px;
+  padding: 3px 7px;
+}
+
+.ex3 .atv ol {
+  font-size: 20px;
+  margin-left: 20px;
+}
+
+
+
+
+.ex4 .header {
+  position: absolute;
+  top: 5%;
+  left: 50%;
+  transform: translate(-50%, -0%);
+}
+
+.ex4 {
+  height: 100vh;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  border-bottom: 2px dashed black;
+  padding: 0 50px;
+  background-color: black;
+  color: white;
+}
+
+.ex4 .atividade {
+  height: 100%;
+  display: grid;
+  align-content: center;
+  gap: 20px;
+}
+
+.ex4 .calc {
+  display: grid;
+  grid-template-columns: repeat(5, max-content);
+  justify-content: center;
+  align-items: end;
+  gap: 20px;
+}
+
+.ex4 .calc input,
+.ex4 .calc label,
+.ex4 .calc button,
+.ex4 .calc span {
+  font-size: 20px;
+}
+
+.ex4 .calc button {
+  padding: 0 10px;
+  height: fit-content;
+}
+
+.ex4 .calc span {
+  background-color: green;
+  width: 150px;
+  text-align: center;
+  padding: 5px 0;
+}
+
+.ex4 .atividade #btnCalcular {
+  width: fit-content;
+  background-color: gray;
+  color: white;
+  border: 1px solid black;
+  padding: 7px;
+  border-radius: 5px;
+}
+
+.ex4 .atividade .valorTotal {
+  background-color: blue;
+  width: 400px;
+  padding: 20px;
+  font-size: 25px;
+  font-weight: bold;
+}
