@@ -6,7 +6,6 @@ CREATE TABLE marca(
     nome_marca VARCHAR(50) NOT NULL
 );
 
-
 CREATE TABLE modelo(
     id SERIAL PRIMARY KEY,
     nome_modelo VARCHAR(50) NOT NULL,
@@ -25,15 +24,12 @@ CREATE TABLE veiculo(
     FOREIGN KEY (id_modelo) REFERENCES modelo(id)
 );
 
-
-
 CREATE TABLE conjuge(
     id SERIAL PRIMARY KEY,
     nome VARCHAR(100) NOT NULL,
     cpf CHAR(11) UNIQUE NOT NULL,
     telefone VARCHAR(11) NOT NULL
 );
-
 
 CREATE TABLE comprador(
     id SERIAL PRIMARY KEY,
@@ -47,8 +43,7 @@ CREATE TABLE comprador(
 INSERT INTO conjuge (nome, cpf, telefone) 
 VALUES('Elisangela Cardoso', '00712345678', '45998091004');
 INSERT INTO comprador(nome, cpf, estado_civil, id_conjuge)
-VALUES('Eugenio Cardoso', '49453130915', 'CASADO', 16)
-
+VALUES('Eugenio Cardoso', '49453130915', 'CASADO', 16);
 INSERT INTO comprador(nome, cpf, estado_civil)
 VALUES('Julia Vitória', '12345678910', 'SOLTEIRO')
 
