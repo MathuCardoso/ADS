@@ -1,0 +1,148 @@
+* {
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  box-sizing: border-box;
+  font-size: 1rem;
+}
+
+.info {
+  color: blue;
+}
+.danger {
+  color: red;
+}
+
+body {
+  background-color: rgb(46, 46, 46);
+  height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
+
+  h2 {
+    font-size: 2rem;
+    color: white;
+  }
+
+  .container {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+
+    form {
+      max-width: 50%;
+      max-height: 80%;
+      box-shadow: 1px 1px 5px black;
+      padding: 20px 25px;
+      border-radius: 10px;
+    }
+  }
+}
+
+.form-control {
+  display: flex;
+  flex-direction: column;
+  margin-block: 10px;
+
+  label {
+    font-size: 1.2rem;
+    color: white;
+  }
+
+  input,
+  select {
+    background: none;
+    border: 3px solid purple;
+    box-shadow: 1px 1px 5px black;
+    padding: 7px;
+    border-radius: 7px;
+    color: white;
+    &:hover,
+    &:focus {
+      border-color: white;
+    }
+  }
+  select {
+    color: white;
+  }
+  option {
+    background-color: black;
+  }
+
+  .invalid {
+    color: red;
+  }
+}
+
+/* FORM-BTNS */
+.form-btns {
+  width: 100%;
+  display: flex;
+  gap: 10px;
+
+  .btn {
+    background: none;
+    border: 2px solid purple;
+    padding: 5px;
+    color: white;
+    cursor: pointer;
+    border-radius: 7px;
+    flex: 1;
+    transition: all 0.3s ease;
+    &:hover {
+      background-color: purple;
+    }
+  }
+
+  a {
+    color: white;
+    text-decoration: none;
+    border: 2px solid white;
+    border-radius: 7px;
+    padding: 5px;
+    transition: all 0.3s ease;
+    &:hover {
+      background-color: white;
+      color: black;
+    }
+  }
+}
+
+.container-list {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+table {
+  box-shadow: 2px 2px 10px black;
+  padding: 20px;
+  border-radius: 10px;
+  th {
+    border: 3px solid white;
+    border-radius: 10px;
+    padding: 7px;
+    color: white;
+    text-align: center;
+  }
+  td {
+    border: 3px solid purple;
+    border-radius: 10px;
+    padding: 7px;
+    color: white;
+    text-align: center;
+  }
+}
+
+.insert-btn a {
+  color: white;
+  font-size: 1.2rem;
+  background: rgb(42, 42, 255);
+  padding: 7px;
+  margin-block: 10px;
+  border-radius: 7px;
+  text-decoration: none;
+}
