@@ -1,95 +1,111 @@
 <?php
 include_once __DIR__ . "/../../include/head.php";
+include_once __DIR__ . "/../../include/menu.php";
 
 $cc = new CursoController();
 $cursos = $cc->getCursos();
 ?>
 
-<div class="container">
 
-    <form method="POST" action="">
+<form method="POST" action="" class="col-6">
 
-        <h2>Inserir aluno</h2>
+    <h2>Inserir aluno</h2>
 
-        <div class="form-control">
+    <div class="mb-3">
+        <?php
+        if (isset($erros) && isset($erros['nome'])) {
+            echo "<label class='text-danger form-label'>{$erros['nome']}</label>";
+        } else {
+            echo "<label class='form-label' for='txtNome'>Nome:</label>";
+        }
+        ?>
+        <input
+            class="form-control"
+            type="text"
+            id="txtNome"
+            name="nome"
+            value="<?= isset($aluno) ? $aluno->getNome() : ''; ?>"
+            placeholder="Informe o nome">
+    </div>
+
+    <div class="mb-3">
+        <?php
+        if (isset($erros) && isset($erros['idade'])) {
+            echo "<label class='text-danger form-label'>{$erros['idade']}</label>";
+        } else {
+            echo "<label class='form-label' for='txtIdade'>Idade:</label>";
+        }
+        ?> <input
+            class="form-control"
+            type="number"
+            id="txtIdade"
+            name="idade"
+            value="<?= isset($aluno) ? $aluno->getIdade() : ''; ?>"
+            placeholder="Informe a idade">
+    </div>
+
+    <div class="mb-3">
+        <?php
+        if (isset($erros) && isset($erros['estrangeiro'])) {
+            echo "<label class='text-danger form-label'>{$erros['estrangeiro']}</label>";
+        } else {
+            echo "<label class='form-label' for='selEstrangeiro'>Estrangeiro:</label>";
+        }
+        ?>
+        <select
+            class="form-select"
+            name="estrangeiro"
+            id="selEstrang">
+            <option value="">----Selecione----</option>
+            <option value="S" <?= isset($aluno) && $aluno->getEstrangeiro() == "S" ? 'SELECTED' : ''; ?>>Sim</option>
+            <option value="N" <?= isset($aluno) && $aluno->getEstrangeiro() == "N" ? 'SELECTED' : ''; ?>>Não</option>
+        </select>
+    </div>
+
+    <div class="mb-3">
+        <?php
+        if (isset($erros) && isset($erros['curso'])) {
+            echo "<label class='text-danger form-label'>{$erros['curso']}</label>";
+        } else {
+            echo "<label class='form-label' for='selCurso'>Curso:</label>";
+        }
+        ?>
+        <select
+            class="form-select"
+            name="curso"
+            id="selCurso">
+            <option value="">----Selecione----</option>
+
             <?php
-            if (isset($erros) && isset($erros['nome'])) {
-                echo "<label class='invalid'>{$erros['nome']}</label>";
-            } else {
-                echo "<label for='txtNome'>Nome:</label>";
-            }
+            foreach ($cursos as $c):
             ?>
-            <input type="text" id="txtNome" name="nome" value="<?= isset($aluno) ? $aluno->getNome() : ''; ?>"
-                placeholder="Informe o nome">
-        </div>
 
-        <div class="form-control">
-            <?php
-            if (isset($erros) && isset($erros['idade'])) {
-                echo "<label class='invalid'>{$erros['idade']}</label>";
-            } else {
-                echo "<label for='txtIdade'>Idade:</label>";
-            }
-            ?> <input type="number" id="txtIdade" name="idade" value="<?= isset($aluno) ? $aluno->getIdade() : ''; ?>"
-                placeholder="Informe a idade">
-        </div>
+                <option value="<?= $c->getId(); ?>" <?= (isset($aluno) && $aluno->getCurso())
+                                                        && $aluno->getCurso()->getId() == $c->getId() ? 'SELECTED' : ''; ?>>
 
-        <div class="form-control">
+                    <?= $c->getNomeTurno(); ?>
+                </option>
+
             <?php
-            if (isset($erros) && isset($erros['estrangeiro'])) {
-                echo "<label class='invalid'>{$erros['estrangeiro']}</label>";
-            } else {
-                echo "<label for='selEstrangeiro'>Estrangeiro:</label>";
-            }
+            endforeach;
             ?>
-            <select name="estrangeiro" id="selEstrang">
-                <option value="">----Selecione----</option>
-                <option value="S" <?= isset($aluno) && $aluno->getEstrangeiro() == "S" ? 'SELECTED' : ''; ?>>Sim</option>
-                <option value="N" <?= isset($aluno) && $aluno->getEstrangeiro() == "N" ? 'SELECTED' : ''; ?>>Não</option>
-            </select>
-        </div>
 
-        <div class="form-control">
-            <?php
-            if (isset($erros) && isset($erros['curso'])) {
-                echo "<label class='invalid'>{$erros['curso']}</label>";
-            } else {
-                echo "<label for='selCurso'>Curso:</label>";
-            }
-            ?>
-            <select name="curso" id="selCurso">
-                <option value="">----Selecione----</option>
+        </select>
+    </div>
 
-                <?php
-                foreach ($cursos as $c):
-                ?>
+    <div class="form-btns d-flex gap-3">
+        <button type="submit"
+            class="btn btn-success">Gravar
+        </button>
+        <a
+            class="btn btn-primary"
+            href="listar.php">Voltar</a>
+    </div>
 
-                    <option value="<?= $c->getId(); ?>" <?= (isset($aluno) && $aluno->getCurso())
-                                                            && $aluno->getCurso()->getId() == $c->getId() ? 'SELECTED' : ''; ?>>
+    <input type="text" name="_submit" value="1" hidden>
+    <input type="number" name="idAluno" value="<?= $aluno ? $aluno->getId() : 0 ?>" hidden>
 
-                        <?= $c->getNomeTurno(); ?>
-                    </option>
-
-                <?php
-                endforeach;
-                ?>
-
-            </select>
-        </div>
-
-        <div class="form-btns">
-            <button type="submit"
-                class="btn">Gravar
-            </button>
-            <a href="listar.php">Voltar</a>
-        </div>
-
-        <input type="text" name="_submit" value="1" hidden>
-        <input type="number" name="idAluno" value="<?= $aluno ? $aluno->getId() : 0 ?>" hidden>
-
-    </form>
-
-</div>
+</form>
 
 <?php
 include_once __DIR__ . "/../../include/footer.php";

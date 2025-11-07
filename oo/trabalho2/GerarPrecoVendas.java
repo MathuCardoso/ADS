@@ -1,8 +1,4 @@
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.util.ArrayList;
 
 public class GerarPrecoVendas {
@@ -11,19 +7,12 @@ public class GerarPrecoVendas {
 
     public static void main(String[] args) throws Exception {
         GerarPrecoVendas gpv = new GerarPrecoVendas();
+        gpv.gerarArqFiles();
         gpv.reader = new BufferedReader(new InputStreamReader(System.in));
-        String arq_entrada;
         if (gpv.isFileNull(0)) {
-            System.out.println("Digite o nome do arquivo de entrada: ");
-            arq_entrada = gpv.reader.readLine() + ".csv";
-            if (arq_entrada.equals(".csv")) {
-                arq_entrada = "preco_custo.csv";
-            }
-            gpv.gerarArquivoEntrada(arq_entrada);
-            gpv.updateFilesList(arq_entrada, 0);
-        } else {
-            arq_entrada = gpv.getArqEntrada();
+            gpv.gerarArquivoEntrada();
         }
+        String arq_entrada = gpv.getArqName(0);
         gpv.menu(arq_entrada);
     }
 
@@ -31,24 +20,60 @@ public class GerarPrecoVendas {
         int op;
         while (true) {
             System.out.println("==========MENU==========");
-            System.out.println("[1] - [EXIBIR ITENS]");
-            System.out.println("[2] - [ADICIONAR ITENS]");
-            System.out.println("[3] - [ADICIONAR MARGEM DE LUCRO]");
-            System.out.println("[4] - [GERAR AQUIVO 'comprar.csv']");
-            System.out.println("[5] - [SAIR]");
-            System.out.println("Escolha uma das opções acima: ");
-            op = Integer.parseInt(this.reader.readLine());
 
+            if (isFileNull(0)) {
+                System.out.println("[1] - [GERAR ARQUIVO DE ENTRADA]");
+            } else {
+                System.out.println("[1] - [EXIBIR ITENS A PREÇO DE CUSTO]");
+                System.out.println("[2] - [ADICIONAR ITENS]");
+                if (isFileNull(1)) {
+                    System.out.println("[3] - [ADICIONAR MARGEM DE LUCRO]");
+                } else {
+                    System.out.println("[3] - [ATUALIZAR MARGEM DE LUCRO]");
+                }
+                if (isFileNull(2)) {
+                    System.out.println("[4] - [GERAR ARQUIVO COM ESTOQUE < 10]");
+                } else {
+                    System.out.println("[4] - [ATUALIZAR ESTOQUE < 10]");
+                }
+                if (!isFileNull(1)) {
+                    System.out.println("[5] - [EXIBIR ITENS A PREÇO DE VENDA]");
+                }
+                if (!isFileNull(2)) {
+                    System.out.println("[6] - [EXIBIR ESTOQUE < 10]");
+                }
+            }
+            if (!isFileNull(0) || !isFileNull(1) || !isFileNull(2)) {
+                System.out.println("[7] - [Excluir Arquivo]");
+            }
+            System.out.println("[0] - [SAIR]");
+            System.out.println("Escolha uma das opções acima: ");
+
+            try {
+                op = Integer.parseInt(this.reader.readLine());
+            } catch (NumberFormatException e) {
+                System.out.println("Por favor, digite um número válido.");
+                continue;
+            }
             switch (op) {
-                case 1 -> verPrecoCusto(arq_entrada);
-                case 2 -> adicionarItem(arq_entrada);
-                case 3 -> adicionarMargem(arq_entrada);
-                case 4 -> gerarArquivoComprar(arq_entrada);
-                case 5 -> {
+                case 1 -> {
+                    if (isFileNull(0)) {
+                        this.gerarArquivoEntrada();
+                    } else {
+                        this.verPrecoCusto(this.getArqName(0));
+                    }
+                }
+                case 2 -> this.adicionarItem(arq_entrada);
+                case 3 -> this.adicionarMargem(arq_entrada);
+                case 4 -> this.gerarArquivoComprar(arq_entrada);
+                case 5 -> this.verPrecoVenda(getArqName(1));
+                case 6 -> this.verEstoqueBaixo(getArqName(2));
+                case 7 -> this.deleteArq();
+                case 0 -> {
                     System.out.println("Saindo...");
                     return;
                 }
-                default -> System.out.println("Opção inválida. Tente novamente");
+                default -> System.out.println("Opção inválida.");
             }
         }
     }
@@ -59,7 +84,7 @@ public class GerarPrecoVendas {
             String[] vetCampos;
             fileReader.readLine();
             System.out.println("| CÓDIGO | ESTOQUE | NOME_PRODUTO | PREÇO_CUSTO | CATEGORIA |");
-            System.out.println("=======================================================================");
+            System.out.println("================================================");
             while ((linha = fileReader.readLine()) != null) {
                 vetCampos = linha.split(";");
                 System.out.println("| " + vetCampos[0] + " | "
@@ -68,14 +93,74 @@ public class GerarPrecoVendas {
                         + "R$" + vetCampos[3] + " | "
                         + vetCampos[4] + " | "
                 );
-                System.out.println("=======================================================================");
+                System.out.println("================================================");
             }
         } catch (Exception e) {
-            System.out.println("Erro ao ler arquivo" + e.getMessage());
+            System.out.println("Erro ao ler arquivo " + e.getMessage());
         }
     }
 
-    private void gerarArquivoEntrada(String file_name) {
+    private void verPrecoVenda(String file_name) throws Exception {
+        if (!this.isFileNull(1)) {
+            try (BufferedReader reader = new BufferedReader(new FileReader(file_name))) {
+
+                String linha;
+                String[] vetCampos;
+                reader.readLine();
+                System.out.println("| CÓDIGO | NOME_PRODUTO | PREÇO_VENDA |");
+                System.out.println("=======================================================================");
+                while ((linha = reader.readLine()) != null) {
+                    vetCampos = linha.split(";");
+                    System.out.println("| " + vetCampos[0] + " | "
+                            + vetCampos[1] + " | "
+                            + vetCampos[2] + " | "
+                    );
+                    System.out.println("=======================================================================");
+                }
+
+            } catch (IOException e) {
+                System.out.println("ERRO AO LER ARQUIVO " + file_name + "\n"
+                        + e.getMessage());
+            }
+        } else {
+            System.out.println("O arquivo informado não existe.");
+        }
+    }
+
+    private void verEstoqueBaixo(String file_name) throws Exception {
+        if (!this.isFileNull(1)) {
+            try (BufferedReader reader = new BufferedReader(new FileReader(file_name))) {
+                String linha;
+                String[] vetCampos;
+                reader.readLine();
+                System.out.println("| CÓDIGO | ESTOQUE | NOME_PRODUTO | PREÇO_CUSTO | CATEGORIA |");
+                System.out.println("=======================================================================");
+                while ((linha = reader.readLine()) != null) {
+                    vetCampos = linha.split(";");
+                    System.out.println("| " + vetCampos[0] + " | "
+                            + vetCampos[1] + " | "
+                            + vetCampos[2] + " | "
+                            + "R$" + vetCampos[3] + " | "
+                            + vetCampos[4] + " | "
+                    );
+                    System.out.println("=======================================================================");
+                }
+
+            } catch (IOException e) {
+                System.out.println("ERRO AO LER ARQUIVO " + file_name + "\n"
+                        + e.getMessage());
+            }
+        } else {
+            System.out.println("O arquivo informado não existe.");
+        }
+    }
+
+    private void gerarArquivoEntrada() throws Exception {
+        System.out.println("Digite o nome do arquivo de entrada ('preco-custo.csv'):");
+        this.reader = new BufferedReader(new InputStreamReader(System.in));
+        String file_name = this.reader.readLine() + ".csv";
+        if (file_name.equals(".csv"))
+            file_name = "preco_custo.csv";
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(file_name))) {
             String arq_header = "codigo;estoque;nome_produto;preco_custo;categoria";
             writer.write(arq_header);
@@ -100,6 +185,7 @@ public class GerarPrecoVendas {
             writer.newLine();
             writer.write("10;2;Controle Xbox Series;300,00;Acessórios Gaming");
             System.out.println("Arquivo gerado com sucesso");
+            this.updateFilesList(file_name, 0);
         } catch (Exception e) {
             System.out.println("Erro ao gerar arquivo: " + e.getMessage());
         }
@@ -110,9 +196,18 @@ public class GerarPrecoVendas {
         float preco_venda;
         float preco_custo;
         ArrayList<String> vetCamposAtualizados = new ArrayList<>();
-        System.out.println("Digite a margem de lucro (%): /ex: '30'/");
-        margem = Float.parseFloat(this.reader.readLine());
-        margem = margem / 100;
+        while (true) {
+            System.out.println("Digite a margem de lucro (%): /ex: '30'/");
+            try {
+                margem = Float.parseFloat(this.reader.readLine());
+            } catch (NumberFormatException e) {
+                System.out.println("Digite um valor válido.");
+                continue;
+            }
+            margem = margem / 100;
+            break;
+        }
+
 
         try (BufferedReader fileReader = new BufferedReader(new FileReader(arq_entrada))) {
             String line;
@@ -136,65 +231,18 @@ public class GerarPrecoVendas {
         String arq_saida;
         BufferedReader fileReader = new BufferedReader(new FileReader("files.csv"));
         fileReader.readLine();
-        String[] vetFiles;
-        vetFiles = fileReader.readLine().split(";");
-        if (vetFiles[1].equals("0")) {
+        if (isFileNull(1)) {
             System.out.println("Digite o nome do arquivo de saída: ");
             arq_saida = this.reader.readLine() + ".csv";
             if (arq_saida.equals(".csv")) {
                 arq_saida = "preco_venda.csv";
             }
-            String filesHeader = "arq_entrada;arq_saida;arq_comprar";
-            String filesLine = vetFiles[0] + ";" +
-                    arq_saida + ";" +
-                    vetFiles[2];
-            BufferedWriter writer = new BufferedWriter(new FileWriter("files.csv"));
-            writer.write(filesHeader);
-            writer.newLine();
-            writer.write(filesLine);
-            writer.close();
             gerarArquivoSaida(vetCamposAtualizados, arq_saida);
         } else {
-            arq_saida = vetFiles[1];
+            arq_saida = getArqName(1);
             gerarArquivoSaida(vetCamposAtualizados, arq_saida);
         }
 
-    }
-
-    private void adicionarItem(String arq_entrada) throws Exception {
-        this.reader = new BufferedReader(new FileReader(arq_entrada));
-        String linha;
-        String ultimoCodigo = null;
-        reader.readLine();
-        while ((linha = reader.readLine()) != null) {
-            int codigo = Integer.parseInt(linha.split(";")[0]) + 1;
-            ultimoCodigo = String.valueOf(codigo);
-        }
-        this.reader.close();
-
-        this.reader = new BufferedReader(new InputStreamReader(System.in));
-        System.out.println("==========ADICIONAR ITEM==========");
-        String codigo = ultimoCodigo;
-        System.out.println("Digite o nome do produto: ");
-        String nome_produto = this.reader.readLine();
-        System.out.println("Digite o estoque: ");
-        String estoque = this.reader.readLine();
-        System.out.println("Digite o preço de custo: ");
-        String preco_custo = this.reader.readLine();
-        System.out.println("Digite a categoria do produto: ");
-        String categoria = this.reader.readLine();
-
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(arq_entrada, true))) {
-            writer.newLine();
-            writer.write(codigo + ";" +
-                    estoque + ";" +
-                    nome_produto + ";" +
-                    preco_custo + ";" +
-                    categoria);
-            System.out.println("Item adicionado com sucesso.");
-        } catch (Exception e) {
-            System.out.println("Erro ao adicionar item: " + e.getMessage());
-        }
     }
 
     private void gerarArquivoSaida(ArrayList<String> vetCampos, String file_name) {
@@ -206,8 +254,9 @@ public class GerarPrecoVendas {
                 writer.newLine();
             }
             System.out.println("Arquivo gerado/atualizado com sucesso");
+            this.updateFilesList(file_name, 1);
         } catch (Exception e) {
-            System.out.println("ERRO: " + e.getMessage());
+            System.out.println("ERRO AO GERAR ARQUIVO DE SAÍDA: " + e.getMessage());
         }
     }
 
@@ -237,8 +286,37 @@ public class GerarPrecoVendas {
             }
             writer.close();
             System.out.println("Arquivo gerado/atualizado com sucesso");
+            this.updateFilesList("comprar.csv", 2);
         } catch (Exception e) {
             System.out.println("Erro ao gerar/atualizar arquivo: " + e.getMessage());
+        }
+    }
+
+    private void adicionarItem(String arq_entrada) throws Exception {
+        this.reader = new BufferedReader(new FileReader(arq_entrada));
+
+        this.reader = new BufferedReader(new InputStreamReader(System.in));
+        System.out.println("==========ADICIONAR ITEM==========");
+        String codigo = this.getLastCode(arq_entrada);
+        System.out.println("Digite o nome do produto: ");
+        String nome_produto = this.reader.readLine();
+        System.out.println("Digite o estoque: ");
+        String estoque = this.reader.readLine();
+        System.out.println("Digite o preço de custo: ");
+        String preco_custo = this.reader.readLine();
+        System.out.println("Digite a categoria do produto: ");
+        String categoria = this.reader.readLine();
+
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(arq_entrada, true))) {
+            writer.newLine();
+            writer.write(codigo + ";" +
+                    estoque + ";" +
+                    nome_produto + ";" +
+                    preco_custo + ";" +
+                    categoria);
+            System.out.println("Item adicionado com sucesso.");
+        } catch (Exception e) {
+            System.out.println("Erro ao adicionar item: " + e.getMessage());
         }
     }
 
@@ -252,6 +330,57 @@ public class GerarPrecoVendas {
         vetFilesLine = filesLine.split(";");
 
         return vetFilesLine[pos].equals("0");
+    }
+
+    private void deleteArq() {
+        try (BufferedReader reader = new BufferedReader(new FileReader("files.csv"))) {
+            this.reader = new BufferedReader(new InputStreamReader(System.in));
+            int op;
+
+            reader.readLine();
+            String[] fileNames = reader.readLine().split(";");
+
+            System.out.println("==========ARQUIVOS==========");
+            while (true) {
+                int i = 0;
+                while (i < fileNames.length && fileNames[i] != null) {
+                    if (fileNames[i].equals("0")) {
+                        i++;
+                        continue;
+                    }
+                    System.out.println("[" + (i + 1) + "] - " + fileNames[i].toUpperCase());
+                    i++;
+                }
+                try {
+                    System.out.println("Escolha um dos arquivos acima a ser deletado: ");
+                    op = Integer.parseInt(this.reader.readLine());
+                } catch (NumberFormatException e) {
+                    System.out.println("Digite uma opção válida.");
+                    continue;
+                }
+
+                int index = op - 1;
+
+                try {
+                    if (fileNames[index] != null) {
+                        if (fileNames[index].equals("0")) {
+                            System.out.println("Escolha uma opção válida.");
+                            continue;
+                        }
+                        File arq = new File(fileNames[index]);
+                        if (arq.delete()) {
+                            System.out.println("Arquivo excluído com sucesso.");
+                            this.updateFilesList(String.valueOf(0), index);
+                            return;
+                        }
+                    }
+                } catch (ArrayIndexOutOfBoundsException e) {
+                    System.out.println("Escolha uma opção válida.");
+                }
+            }
+        } catch (IOException e) {
+            System.out.println("ERRO AO LER ARQUIVO 'files.csv'." + e.getMessage());
+        }
     }
 
     private void updateFilesList(String fileName, int pos) {
@@ -289,18 +418,48 @@ public class GerarPrecoVendas {
         }
     }
 
-    private String getArqEntrada() {
+    private String getArqName(int pos) {
         try (BufferedReader reader = new BufferedReader(new FileReader("files.csv"))) {
             reader.readLine();
             String linha = reader.readLine();
-            if(linha != null)
-                return reader.readLine().split(";")[0];
+            if (linha != null)
+                return linha.split(";")[pos];
             else {
                 return "Nenhuma linha para ler.";
             }
-        } catch (Exception e) {
+        } catch (IOException e) {
             return "NÃO FOI POSSÍVEL CARREGAR O ARQUIVO 'files.csv': \n'" + e.getMessage();
         }
     }
 
+    private String getLastCode(String file_name) {
+        try (BufferedReader reader = new BufferedReader(new FileReader(file_name))) {
+            String linha;
+            String ultimoCodigo = null;
+            reader.readLine();
+            while ((linha = reader.readLine()) != null) {
+                int codigo = Integer.parseInt(linha.split(";")[0]) + 1;
+                ultimoCodigo = String.valueOf(codigo);
+            }
+            return ultimoCodigo;
+        } catch (IOException e) {
+            return "NÃO FOI POSSÍVEL LER O ARQUIVO. " + e.getMessage();
+        }
+    }
+
+    private void gerarArqFiles() {
+        try (BufferedReader reader = new BufferedReader(new FileReader("files.csv"))) {
+            reader.readLine();
+        } catch (IOException e) {
+            String arq_header = "arq_entrada;arq_saida;arq_comprar";
+            try (BufferedWriter writer = new BufferedWriter(new FileWriter("files.csv"))) {
+                writer.write(arq_header);
+                writer.newLine();
+                writer.write("0;0;0");
+                System.out.println("Arquivo 'files.csv' gerado.");
+            } catch (IOException j) {
+                System.out.println(j.getMessage());
+            }
+        }
+    }
 }
