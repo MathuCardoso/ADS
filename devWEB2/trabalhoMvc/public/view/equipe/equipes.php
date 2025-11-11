@@ -2,22 +2,23 @@
 
 $viewController
     ->setLinks([
-        "css/equipe/form.css",
-        "css/equipe/list.css"
+        "css/equipe.css",
+        "css/form.css",
+        "css/list.css"
     ])
-    ->setTitle("Form");
+    ->setTitle("Equipes");
 
 require_once App::URL_INCLUDE . "template/app_head.php";
 ?>
 
-<div class="container">
+<div class="container container-equipe">
 
 
     <?php require_once App::URL_VIEW . "equipe/list.php" ?>
 
     <div class="form-container">
 
-        <form class="form" method="POST" enctype="multipart/form-data">
+        <form class="form" method="POST">
 
 
             <h2>Cadastro de Equipes</h2>
@@ -30,7 +31,7 @@ require_once App::URL_INCLUDE . "template/app_head.php";
 
                     <?php else: ?>
 
-                        <label for="inpNome">Nome do piloto</label>
+                        <label for="inpNome">Nome da equipe</label>
 
                     <?php endif; ?>
                     <input
@@ -38,68 +39,90 @@ require_once App::URL_INCLUDE . "template/app_head.php";
                         id="inpNome"
                         type="text"
                         name="nome"
-                        placeholder="Ex: Felipe Drugovich">
+                        placeholder="Ex: Red Bull Racing"
+                        value="<?= isset($equipe) ? $equipe->getNome() : ''; ?>">
                 </div>
 
                 <div class="form-control">
-                    <?php if (isset($erros['idade'])): ?>
+                    <?php if (isset($erros['sede'])): ?>
 
-                        <label for="inpIdade" class="invalid"><?= $erros['idade'] ?></label>
+                        <label for="inpSede" class="invalid"><?= $erros['sede'] ?></label>
 
                     <?php else: ?>
 
-                        <label for="inpIdade">Idade do piloto</label>
+                        <label for="inpIdade">Sede da equipe</label>
 
                     <?php endif; ?>
                     <input
                         class="inp"
-                        id="inpIdade"
-                        type="number"
-                        name="idade"
-                        placeholder="Ex: 21">
+                        id="inpSede"
+                        type="text"
+                        name="sede"
+                        placeholder="Ex: Woking - UK"
+                        value="<?= isset($equipe) ? $equipe->getSede() : ''; ?>">
+
                 </div>
 
                 <div class="form-control">
-                    <?php if (isset($erros['nacional'])): ?>
+                    <?php if (isset($erros['cor1'])): ?>
 
-                        <label for="inpNacional" class="invalid"><?= $erros['nacional'] ?></label>
+                        <label for="inpCor1" class="invalid"><?= $erros['cor1'] ?></label>
 
                     <?php else: ?>
 
-                        <label for="inpNacional">Nacionalidade do piloto</label>
+                        <label for="inpCor1">Cor 1 da equipe</label>
 
                     <?php endif; ?>
-                    <select
-                        class="sel"
-                        id="inpNac"
-                        name="nacional">
-                        <option value="">Escolha um país</option>
-                    </select>
-
-
-                </div>
-
-                <div class="form-control">
-                    <label for="">Foto do piloto</label>
                     <input
                         class="inp"
-                        id="inpFoto"
-                        type="file"
-                        name="foto">
+                        id="inpCor1"
+                        name="cor1"
+                        type="color"
+                        value="<?= isset($equipe) ? $equipe->getCor1() : ''; ?>">
+
                 </div>
 
                 <div class="form-control">
-                    <?php if (isset($erros['equipe'])): ?>
+                    <?php if (isset($erros['cor2'])): ?>
 
-                        <label for="selEquipe" class="invalid"><?= $erros['equipe'] ?></label>
+                        <label for="inpCor2" class="invalid"><?= $erros['cor2'] ?></label>
 
                     <?php else: ?>
 
-                        <label for="selEquipe">Equipe do piloto</label>
+                        <label for="inpCor2">Cor 2 da equipe</label>
 
                     <?php endif; ?>
-                    <select name="equipe" id="selEquipe" class="sel">
-                        <option value="">Escolha uma equipe</option>
+                    <input
+                        class="inp"
+                        id="inpCor2"
+                        name="cor2"
+                        type="color"
+                        value="<?= isset($equipe) ? $equipe->getCor2() : ''; ?>">
+
+                </div>
+
+                <div class="form-control">
+                    <?php if (isset($erros['categoria'])): ?>
+
+                        <label for="selCategoria" class="invalid"><?= $erros['categoria'] ?></label>
+
+                    <?php else: ?>
+
+                        <label for="selCategoria">Categoria da equipe</label>
+
+                    <?php endif; ?>
+                    <select name="categoria" id="selCategoria" class="sel">
+                        <option value="">Escolha uma categoria</option>
+                        <?php foreach ($categoria as $c): ?>
+
+                            <option value="<?= $c->getId(); ?>"
+
+                                <?= isset($equipe) && $equipe->getCategoria() &&
+                                    $equipe->getCategoria()->getId() === $c->getId() ? 'selected' : ''; ?>>
+                                <?= $c->getNome(); ?>
+                            </option>
+
+                        <?php endforeach; ?>
                     </select>
                 </div>
             </div>

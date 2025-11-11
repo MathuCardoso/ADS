@@ -10,4 +10,6 @@ class App
     public const URL_PUBLIC = __DIR__ . "/../public/";
     public const URL_INCLUDE = __DIR__ . "/../public/include/";
     public const URL_ASSETS = "/public/assets/";
+    public const URL_UPLOADS = __DIR__ . "/../public/uploads/";
+    public const URL_HTML_UPLOADS = "/public/uploads/";
 }

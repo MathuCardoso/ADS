@@ -6,19 +6,22 @@ use App;
 use App\controller\Controller;
 use App\model\Equipe;
 use App\model\Piloto;
+use App\repository\EquipeDAO;
 use App\repository\PilotoDAO;
 use App\service\PilotoService;
 use PDOException;
 
 class PilotoController extends Controller
 {
-    private ?PilotoService $pilotoS;
-    private ?PilotoDAO $pilotoD;
+    private PilotoService $pilotoS;
+    private PilotoDAO $pilotoD;
+    private EquipeDAO $equipeD;
 
     public function __construct()
     {
         $this->pilotoS = new PilotoService();
         $this->pilotoD = new PilotoDAO();
+        $this->equipeD = new EquipeDAO();
     }
 
     public function list()
@@ -33,7 +36,7 @@ class PilotoController extends Controller
             'piloto/pilotos',
             [
                 'pilotos' => $this->list(),
-                'erros' => $erros = []
+                'equipes' => $this->equipeD->list(),
             ]
         );
     }
@@ -63,13 +66,14 @@ class PilotoController extends Controller
         if (empty($erros)) {
             try {
                 $this->pilotoD->insert($piloto);
+                header("location: " . App::URL_BASE . "pilotos");
+                exit;
             } catch (PDOException $p) {
                 echo "Erro ao inserir piloto.";
                 echo $p->getMessage();
-                return;
+                exit;
             }
         }
-        echo $idEquipe;
         $this->loadView(
             "piloto/pilotos",
             [

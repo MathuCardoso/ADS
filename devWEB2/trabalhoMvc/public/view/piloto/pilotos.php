@@ -2,15 +2,16 @@
 
 $viewController
     ->setLinks([
-        "css/piloto/form.css",
-        "css/piloto/list.css"
+        "css/piloto.css",
+        "css/form.css",
+        "css/list.css"
     ])
-    ->setTitle("Form");
+    ->setTitle("teste");
 
 require_once App::URL_INCLUDE . "template/app_head.php";
 ?>
 
-<div class="container">
+<div class="container container-piloto">
 
 
     <?php require_once App::URL_VIEW . "piloto/list.php" ?>
@@ -80,7 +81,7 @@ require_once App::URL_INCLUDE . "template/app_head.php";
                 </div>
 
                 <div class="form-control">
-                    <label for="">Foto do piloto</label>
+                    <label for="inpFoto">Foto do piloto</label>
                     <input
                         class="inp"
                         id="inpFoto"
@@ -100,6 +101,14 @@ require_once App::URL_INCLUDE . "template/app_head.php";
                     <?php endif; ?>
                     <select name="equipe" id="selEquipe" class="sel">
                         <option value="">Escolha uma equipe</option>
+
+                        <?php foreach ($equipes as $e): ?>
+
+                            <option value="<?= $e->getId() ?>">
+                                <?= $e->getNome() ?>
+                            </option>
+
+                        <?php endforeach; ?>
                     </select>
                 </div>
             </div>
@@ -113,5 +122,8 @@ require_once App::URL_INCLUDE . "template/app_head.php";
 </div>
 
 <?php
+
+$viewController->setScriptLink(["/js/paises.js"]);
+
 require_once App::URL_INCLUDE . "template/app_footer.php";
 ?>

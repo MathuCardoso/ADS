@@ -7,15 +7,14 @@
     rgba(0, 0, 0, 0.7),
     rgb(0, 0, 0, 0.9)
   );
-  border-right: 4px solid red;
   display: flex;
   align-items: center;
   flex-direction: column;
+  overflow-y: auto;
 }
 
 h1 {
   font-size: 2.2rem;
-  background: linear-gradient(to right, purple, red);
   background-clip: text;
   -webkit-text-fill-color: transparent;
   font-weight: bold;
@@ -24,18 +23,22 @@ h1 {
   margin-bottom: 10px;
 }
 
-.pilotos {
-  width: 90%;
+.pilotos,
+.equipes,
+.categorias {
+  width: 95%;
   border-top: 3px solid white;
   padding-top: 20px;
   border-radius: 5px;
+  display: flex;
+  flex: 1 1 1;
+  gap: 20px;
 }
 
-.piloto {
-  background-color: red;
+.card {
   color: white;
-  width: 30%;
-  height: fit-content;
+  width: calc(30% - 10px);
+  height: 55vh;
   padding: 7px;
   border-radius: 7px;
   display: flex;
@@ -43,7 +46,7 @@ h1 {
   align-items: center;
   flex-direction: column;
 
-  .p-head {
+  .c-head {
     width: 100%;
     display: flex;
     justify-content: center;

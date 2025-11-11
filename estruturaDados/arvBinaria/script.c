@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <locale.h>
+#include <stdlib.h>
 #define TRUE 1
 #define FALSE 0
 
@@ -24,13 +25,77 @@ void insereArvore(Arvore *a, int valor)
         (*a)->dado = valor;
         (*a)->esq = NULL;
         (*a)->dir = NULL;
+        printf("\n%d inserido com sucesso.\n", valor);
     }
     else if (valor < (*a)->dado)
+    {
         insereArvore(&((*a)->esq), valor);
+    }
     else if (valor > (*a)->dado)
+    {
         insereArvore(&((*a)->dir), valor);
+    }
     else
+    {
         printf("\nValor ja existe... tente outro.\n");
+        return;
+    }
+}
+
+void antecessor(Arvore a, Arvore *x)
+{
+    Arvore aux;
+    if ((*x)->dir != NULL)
+    {
+        antecessor(a, &((*x)->dir));
+    }
+    else
+    {
+        a->dado = (*x)->dado;
+        aux = *x;
+        *x = aux->esq;
+        free(aux);
+    }
+}
+
+void retiraArvore(Arvore *a, int valor)
+{
+    Arvore aux;
+    if (*a != NULL)
+    {
+
+        if (valor > ((*a)->dado))
+        {
+            retiraArvore(&((*a)->dir), valor);
+        }
+        else if (valor < ((*a)->dado))
+        {
+            retiraArvore(&((*a)->esq), valor);
+        }
+        else
+        {
+            if ((*a)->dir == NULL)
+            {
+
+                aux = (*a);
+                *a = aux->esq;
+                free(aux);
+                printf("Removido\n");
+            }
+            else if ((*a)->esq == NULL)
+            {
+
+                aux = (*a)->dir;
+                free(*a);
+                *a = aux;
+                printf("Removido\n");
+            }
+            else
+            {
+                antecessor(*a, &((*a)->esq));
+            }
+        }
+    }
 }
 
 Arvore buscaArvore(Arvore a, int valor)
@@ -92,29 +157,74 @@ int main()
     Arvore arvore = criaArvore();
 
     int opcao;
+    int valor = 0;
 
     while (TRUE)
     {
 
         printf("============================================\n");
         printf("[1] - [INSERIR ELEMENTO]\n");
-        printf("[2] - [BUSCAR ELEMENTO]\n");
-        printf("[3] - [IMPRIMIR ÁRVORE EM PRÉ-ORDEM]\n");
-        printf("[4] - [IMPRIMIR ÁRVORE EM ORDEM CRESCENTE]\n");
-        printf("[5] - [IMPRIMIR ÁRVORE EM PÓS-ORDEM]\n");
+        printf("[2] - [RETIRAR ELEMENTO]\n");
+        printf("[3] - [BUSCAR ELEMENTO]\n");
+        printf("[4] - [IMPRIMIR ÁRVORE EM PRÉ-ORDEM]\n");
+        printf("[5] - [IMPRIMIR ÁRVORE EM ORDEM CRESCENTE]\n");
+        printf("[6] - [IMPRIMIR ÁRVORE EM PÓS-ORDEM]\n");
+        printf("[0] - [SAIR]\n");
         printf("Escolha uma das opçoes acima: ");
         scanf("%d", &opcao);
 
         switch (opcao)
         {
         case 1:
-            int valor = 0;
             printf("\nDigite o valor a ser inserido: ");
             scanf("%d", &valor);
-            insereArvore(arvore, valor);
+            printf("\n");
+            insereArvore(&arvore, valor);
             break;
+
         case 2:
-            
+            printf("\nDigite o valor a ser deletado: ");
+            scanf("%d", &valor);
+            printf("\n");
+            retiraArvore(&arvore, valor);
+            break;
+
+        case 3:
+            printf("\nDigite o valor a ser buscado: ");
+            scanf("%d", &valor);
+            printf("\n");
+            if (buscaArvore(arvore, valor))
+            {
+                printf("O valor existe na árvore.\n");
+            }
+            else
+            {
+                printf("O elemento não existe na árvore.\n");
+            }
+            break;
+
+        case 4:
+            printf("\n");
+            preOrdem(arvore);
+            printf("\n");
+            break;
+
+        case 5:
+            printf("\n");
+            inOrdemAsc(arvore);
+            printf("\n");
+            break;
+
+        case 6:
+            printf("\n");
+            posOrdem(arvore);
+            printf("\n");
+            break;
+
+        case 0:
+            printf("\nSaindo...");
+            return 0;
+            break;
 
         default:
             break;

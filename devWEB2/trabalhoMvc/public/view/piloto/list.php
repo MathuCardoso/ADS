@@ -9,8 +9,8 @@
         ?>
 
 
-            <div class="piloto">
-                <div class="p-head">
+            <div class="card">
+                <div class="c-head">
                     <img src="<?= $p->getFotoPerfil(); ?>" alt="">
                 </div>
 

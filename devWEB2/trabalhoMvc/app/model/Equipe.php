@@ -11,6 +11,7 @@ class Equipe
     private ?string $nome;
     private ?string $cor1;
     private ?string $cor2;
+    private ?string $sede;
     private ?Categoria $categoria;
 
     /**
@@ -109,6 +110,26 @@ class Equipe
     public function setCategoria($categoria)
     {
         $this->categoria = $categoria;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of sede
+     */ 
+    public function getSede()
+    {
+        return $this->sede;
+    }
+
+    /**
+     * Set the value of sede
+     *
+     * @return  self
+     */ 
+    public function setSede($sede)
+    {
+        $this->sede = $sede;
 
         return $this;
     }

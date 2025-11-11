@@ -19,10 +19,10 @@ class Controller
             return;
         }
 
-        if ($var) {
+        if (!empty($var)) {
             extract($var);
         }
-        
+
         $viewController = new ViewController();
 
         require_once $view;

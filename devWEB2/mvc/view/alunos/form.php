@@ -80,8 +80,9 @@ $cursos = $cc->getCursos();
             foreach ($cursos as $c):
             ?>
 
-                <option value="<?= $c->getId(); ?>" <?= (isset($aluno) && $aluno->getCurso())
-                                                        && $aluno->getCurso()->getId() == $c->getId() ? 'SELECTED' : ''; ?>>
+                <option value="<?= $c->getId(); ?>"
+                    <?= (isset($aluno) && $aluno->getCurso())
+                        && $aluno->getCurso()->getId() == $c->getId() ? 'SELECTED' : ''; ?>>
 
                     <?= $c->getNomeTurno(); ?>
                 </option>

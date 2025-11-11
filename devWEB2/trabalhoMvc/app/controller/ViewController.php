@@ -11,9 +11,11 @@ class ViewController
     private ?string $title;
     private ?array $links;
     private ?array $scriptLink;
+    private ?string $outsideLink;
 
     public function __construct() {
         $this->title = "MVC Automobilismo";
+        $this->outsideLink = null;
     }
 
 
@@ -73,6 +75,26 @@ class ViewController
     public function setScriptLink(array $script = [])
     {
         $this->scriptLink = $script;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of outsideLink
+     */ 
+    public function getOutsideLink()
+    {
+        return $this->outsideLink;
+    }
+
+    /**
+     * Set the value of outsideLink
+     *
+     * @return  self
+     */ 
+    public function setOutsideLink($outsideLink)
+    {
+        $this->outsideLink = $outsideLink;
 
         return $this;
     }
