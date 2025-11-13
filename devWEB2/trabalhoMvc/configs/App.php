@@ -8,8 +8,9 @@ class App
     public const URL_VIEW = __DIR__ . "/../public/view/";
     public const URL_HTML_PUBLIC = "/public/";
     public const URL_PUBLIC = __DIR__ . "/../public/";
-    public const URL_INCLUDE = __DIR__ . "/../public/include/";
+    public const DIR_COMPONENTS = __DIR__ . "/../public/components/";
     public const URL_ASSETS = "/public/assets/";
-    public const URL_UPLOADS = __DIR__ . "/../public/uploads/";
+    public const DIR_UPLOADS = __DIR__ . "/../public/uploads/";
+    public const URL_UPLOADS = "/public/uploads/";
     public const URL_HTML_UPLOADS = "/public/uploads/";
 }

@@ -13,7 +13,8 @@ class ViewController
     private ?array $scriptLink;
     private ?string $outsideLink;
 
-    public function __construct() {
+    public function __construct()
+    {
         $this->title = "MVC Automobilismo";
         $this->outsideLink = null;
     }
@@ -81,7 +82,7 @@ class ViewController
 
     /**
      * Get the value of outsideLink
-     */ 
+     */
     public function getOutsideLink()
     {
         return $this->outsideLink;
@@ -91,11 +92,30 @@ class ViewController
      * Set the value of outsideLink
      *
      * @return  self
-     */ 
+     */
     public function setOutsideLink($outsideLink)
     {
         $this->outsideLink = $outsideLink;
 
         return $this;
+    }
+
+
+    public function includeHtmlHeader()
+    {
+        require_once App::DIR_COMPONENTS . "app_head.php";
+    }
+
+    public function includeHtmlFooter()
+    {
+        require_once App::DIR_COMPONENTS . "app_footer.php";
+    }
+
+    public function routeIs(string $route): bool
+    {
+        if ($_SERVER['REQUEST_URI'] === $route)
+            return true;
+
+        return false;
     }
 }

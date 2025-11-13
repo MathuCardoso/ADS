@@ -11,12 +11,11 @@ class Piloto
     private ?string $nome;
     private ?int $idade;
     private ?string $nacionalidade;
-    private ?string $fotoPerfil;
+    private ?int $numero;
+    private string|array|null $fotoPerfil;
     private ?Equipe $equipe;
 
-    public function __construct() {
-    
-    }
+    public function __construct() {}
 
 
 
@@ -122,7 +121,7 @@ class Piloto
 
     /**
      * Get the value of equipe
-     */ 
+     */
     public function getEquipe()
     {
         return $this->equipe;
@@ -132,10 +131,30 @@ class Piloto
      * Set the value of equipe
      *
      * @return  self
-     */ 
+     */
     public function setEquipe($equipe)
     {
         $this->equipe = $equipe;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of numero
+     */
+    public function getNumero()
+    {
+        return $this->numero;
+    }
+
+    /**
+     * Set the value of numero
+     *
+     * @return  self
+     */
+    public function setNumero($numero)
+    {
+        $this->numero = $numero;
 
         return $this;
     }

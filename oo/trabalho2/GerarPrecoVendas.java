@@ -19,7 +19,7 @@ public class GerarPrecoVendas {
     private void menu(String arq_entrada) throws Exception {
         int op;
         while (true) {
-            System.out.println("==========MENU==========");
+            System.out.println("============MENU============");
 
             if (isFileNull(0)) {
                 System.out.println("[1] - [GERAR ARQUIVO DE ENTRADA]");
@@ -127,8 +127,7 @@ public class GerarPrecoVendas {
         }
     }
 
-    private void verEstoqueBaixo(String file_name) throws Exception {
-        if (!this.isFileNull(1)) {
+    private void verEstoqueBaixo(String file_name) {
             try (BufferedReader reader = new BufferedReader(new FileReader(file_name))) {
                 String linha;
                 String[] vetCampos;
@@ -150,13 +149,10 @@ public class GerarPrecoVendas {
                 System.out.println("ERRO AO LER ARQUIVO " + file_name + "\n"
                         + e.getMessage());
             }
-        } else {
-            System.out.println("O arquivo informado não existe.");
-        }
     }
 
     private void gerarArquivoEntrada() throws Exception {
-        System.out.println("Digite o nome do arquivo de entrada ('preco-custo.csv'):");
+        System.out.println("Digite o nome do arquivo de entrada.\nPadrão: 'preco-custo.csv':");
         this.reader = new BufferedReader(new InputStreamReader(System.in));
         String file_name = this.reader.readLine() + ".csv";
         if (file_name.equals(".csv"))
@@ -174,16 +170,6 @@ public class GerarPrecoVendas {
             writer.write("04;20;Smart TV Samsung 55\";2550,00;Smart TV");
             writer.newLine();
             writer.write("05;12;Notebook Dell Inspiron;3600,00;Notebooks");
-            writer.newLine();
-            writer.write("06;35;Teclado Mecânico Redragon;250,00;Periféricos");
-            writer.newLine();
-            writer.write("07;25;Headset HyperX Cloud II;480,00;Áudio e Headsets");
-            writer.newLine();
-            writer.write("08;1;Monitor LG UltraWide 29\";1100,00;Monitores");
-            writer.newLine();
-            writer.write("09;3;Caixa de Som JBL Charge 5;650,00;Áudio e Portáteis");
-            writer.newLine();
-            writer.write("10;2;Controle Xbox Series;300,00;Acessórios Gaming");
             System.out.println("Arquivo gerado com sucesso");
             this.updateFilesList(file_name, 0);
         } catch (Exception e) {
@@ -217,7 +203,9 @@ public class GerarPrecoVendas {
                 vetCampos = line.split(";");
                 preco_custo = Float.parseFloat(vetCampos[3].replace(",", "."));
                 preco_venda = preco_custo * (1 + margem);
-                vetCampos[3] = String.valueOf(preco_venda);
+                String preco_venda_str = String.valueOf(preco_venda);
+                preco_venda_str = preco_venda_str.replace(".", ",");
+                vetCampos[3] = preco_venda_str;
 
                 line = vetCampos[0] + ";"
                         + vetCampos[2] + ";"
@@ -232,7 +220,7 @@ public class GerarPrecoVendas {
         BufferedReader fileReader = new BufferedReader(new FileReader("files.csv"));
         fileReader.readLine();
         if (isFileNull(1)) {
-            System.out.println("Digite o nome do arquivo de saída: ");
+            System.out.println("Digite o nome do arquivo de saída.\nPadrão: 'preco_venda.csv' ");
             arq_saida = this.reader.readLine() + ".csv";
             if (arq_saida.equals(".csv")) {
                 arq_saida = "preco_venda.csv";

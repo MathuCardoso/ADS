@@ -18,10 +18,21 @@ class Route
         string $uri,
         array $action
     ) {
-        self::handleRoute($uri, $action, "POST");
+        if (!isset($_POST['__method'])) {
+            self::handleRoute($uri, $action, "POST");
+        }
+        return;
     }
 
-    public function delete(string $uri, array $action) {}
+    public static function delete(string $uri, array $action)
+    {
+
+        if (isset($_POST['__method']) && $_POST['__method'] == "delete") {
+            $_SERVER['REQUEST_METHOD'] = "DELETE";
+            self::handleRoute($uri, $action, "DELETE");
+        }
+        return;
+    }
 
     private static function handleRoute(string $uri, array $action, string $httpMethod)
     {

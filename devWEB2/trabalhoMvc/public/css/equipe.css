@@ -7,8 +7,8 @@
     background-clip: text;
     -webkit-text-fill-color: transparent;
   }
-  input,
-  select {
+  .inp,
+  .sel {
     border: 4px solid var(--vermelho);
     &[type="color"] {
       min-height: 40px;
@@ -31,6 +31,16 @@
     }
     .card {
       background-color: var(--vermelho);
+
+      .c-nome {
+        margin-top: 7px;
+        margin-bottom: 10px;
+        span {
+          letter-spacing: 2px;
+          font-size: 1.3rem;
+          font-weight: bold;
+        }
+      }
     }
   }
 }

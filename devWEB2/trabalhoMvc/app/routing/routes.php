@@ -11,6 +11,7 @@ require_once __DIR__ . "/../../autoload.php";
 
 Route::get('/pilotos', [PilotoController::class, 'index']);
 Route::post('/pilotos', [PilotoController::class, 'create']);
+Route::delete('/pilotos', [PilotoController::class, 'destroy']);
 
 Route::get('/equipes', [EquipeController::class, 'index']);
 Route::post('/equipes', [EquipeController::class, 'create']);

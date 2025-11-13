@@ -1,4 +1,6 @@
 <div class="list">
+    <?php require_once App::DIR_COMPONENTS . "menu.php" ?>
+
 
     <h1>Equipes Cadastradas</h1>
 
@@ -11,14 +13,13 @@
             <div class="card"
                 style="background-color: <?= $e->getCor1(); ?>; 
                 color: <?= $e->getCor2() ?>">
-                <div class="c-head">
-
-                    <?= $e->getNome(); ?>
+                <div class="c-nome">
+                    <span><?= $e->getNome(); ?></span>
                 </div>
 
-                <div class="c-body">
-                    <?= $e->getSede() ?>
-                    <?= $e->getCategoria()->getNome() ?>
+                <div class="c-info">
+                    <span><?= $e->getSede() ?></span>
+                    <span><?= $e->getCategoria()->getNome() ?></span>
                 </div>
 
             </div>

@@ -57,6 +57,9 @@
 </style>
 
 <div class="list">
+    
+    <?php require_once App::DIR_COMPONENTS . "menu.php" ?>
+
     <h1>Categorias Cadastradas</h1>
 
     <div class="categorias">

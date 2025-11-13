@@ -5,7 +5,6 @@ document.addEventListener("DOMContentLoaded", () => {
   async function getPaises() {
     let paises = await fetch(url);
     paises = await paises.json();
-    console.log(paises);
 
     paises.forEach((p) => {
       let option = document.createElement("option");

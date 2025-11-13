@@ -7,6 +7,7 @@ use App\controller\Controller;
 use App\model\Categoria;
 use App\repository\CategoriaDAO;
 use App\service\CategoriaService;
+use App\service\Service;
 use PDOException;
 
 class CategoriaController extends Controller
@@ -14,11 +15,13 @@ class CategoriaController extends Controller
 
     private CategoriaDAO $catDAO;
     private CategoriaService $catService;
+    private Service $service;
 
     public function __construct()
     {
         $this->catDAO = new CategoriaDAO();
         $this->catService = new CategoriaService();
+        $this->service = new Service();
     }
 
     public function index()
@@ -53,7 +56,7 @@ class CategoriaController extends Controller
         if (empty($erros)) {
 
             try {
-                $logo = $this->catService->saveFile($logo, $categoria);
+                $logo = $this->service->saveFile($logo, $categoria, "categorias");
                 $categoria->setLogo($logo);
                 $this->catDAO->insert($categoria);
                 header("location: /categorias");

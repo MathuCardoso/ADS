@@ -6,9 +6,8 @@ $viewController
         "css/form.css",
         "css/list.css"
     ])
-    ->setTitle("Form");
-
-require_once App::URL_INCLUDE . "template/app_head.php";
+    ->setTitle("Form")
+    ->includeHtmlHeader();
 ?>
 
 <div class="container container-categoria">
@@ -127,5 +126,5 @@ require_once App::URL_INCLUDE . "template/app_head.php";
 </div>
 
 <?php
-require_once App::URL_INCLUDE . "template/app_footer.php";
+$viewController->includeHtmlFooter();
 ?>

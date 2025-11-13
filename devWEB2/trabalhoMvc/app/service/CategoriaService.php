@@ -32,18 +32,5 @@ class CategoriaService
         return $erros;
     }
 
-    public function saveFile(array $file, Categoria $cat)
-    {
 
-        $fileArray = explode(".", $file['name']);
-        $fileExtension = ".{$fileArray[1]}";
-        $fileNameToSave = $cat->getNome() . uniqid() . $fileExtension;
-        $fileNameToSave = str_replace(" ", "", $fileNameToSave);
-
-        if (move_uploaded_file($file['tmp_name'], App::URL_UPLOADS . "categorias/{$fileNameToSave}")) {
-            return $fileNameToSave;
-        } else {
-            throw new RuntimeException("Não foi possível salvar o arquivo.");
-        }
-    }
 }
